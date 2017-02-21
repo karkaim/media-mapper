@@ -1,0 +1,19 @@
+<div class="btn-group bootstrap-select ng-pristine ng-untouched ng-valid" ng-class="classes">
+  <button type="button" class="btn dropdown-toggle btn-default" data-toggle="dropdown" title="{{model || list.title}}">
+    <span class="filter-option pull-left">
+      {{model || list.title}}
+    </span>
+    &nbsp;
+    <span class="caret"></span>
+  </button>
+  <div class="dropdown-menu open">
+    <ul class="dropdown-menu inner" role="menu" ng-repeat="item in list.opts" ng-model="model">
+      <li data-original-index="item.$index">
+        <a tabindex="0" class="" style="" data-tokens="null" ng-click="setVal(item.value)">
+          <span class="text">{{item.value}}</span>
+          <span class="glyphicon glyphicon-ok check-mark"></span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

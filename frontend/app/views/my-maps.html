@@ -1,0 +1,38 @@
+<div class="content-home">
+
+  <div class="home-box maps">
+    <h1>My Maps</h1>
+
+    <div class="map-titles-row">
+      <div class="name">Name</div>
+      <div class="modified">Modified</div>
+      <div class="edit">Edit</div>
+      <div class="trash">Trash</div>
+    </div>
+
+    <div class="map-row" ng-repeat="m in maps">
+      <div class="name pointer" ng-click="aMapa(m.id)">{{m.name}}</div>
+      <div class="modified">{{m.modified}}</div>
+      <div class="edit pointer" ng-click="aEditMapa(m.id)"><img src="../images/pencil.png"></div>
+      <d2iv class="trash pointer" ng-click="deleteMap(m.id)"><img src="../images/delete.png"></div>
+    </div>
+
+  </div>
+
+</div>
+
+
+<script type="text/ng-template" id="confirm.html">
+<div class="confirm-delete">
+  <div class="modal-header">
+    <h1>Confirm Delete {{card.name}}</h1>
+  </div>
+  <div class="modal-body">
+    <p>this action cannot be undone</p>
+  </div>
+  <div class="modal-footer">
+    <button ng-click="confirmDelete()">OK</button>
+    <button ng-click="cancel()">Cancel</button>
+  </div>
+</div>
+</script>

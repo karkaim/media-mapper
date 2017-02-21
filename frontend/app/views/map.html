@@ -1,0 +1,34 @@
+<arrange-bar></arrange-bar>
+<div class="map-buttons">
+  <div class="content-map-block">
+    <h1>{{title}}</h1>
+    <div class="link pointer" clip-copy="mapUrl" tooltip="Link copied to clipboard" tooltip-class="tooltip-copy" tooltip-trigger="click"><img src="../images/link.svg">Copy Link</div>
+    <div class="print pointer" ng-click="print()">
+      <img src="../images/print.svg">PRINT
+    </div>
+    <div ng-click="downloadPdf()" class="pdf pointer">
+      <img src="../images/pdf.svg">
+        Create PDF
+    </div>
+  </div>
+</div>
+<div class="container-fluid content">
+  <div class="cols">
+    <div ng-repeat="item in cards | filterByTerr:terrFilter | filterByGenre:genreFilter | filterByStory:storylineFilter | filterByComm:communityFilter | filterByPos:positionFilter | filterByFn:functionFilter | customOrder:order| queryFilter:query">
+      <div class="block-card">
+        <card ng-click="open(item)" mycard="item" class="col-mediacard hide-text lupa"></card>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/ng-template" id="cardModal.html">
+  <full-card mycard="card"></full-card>
+</script>
+
+<script type="text/ng-template" id="pdfModal.html">
+  <div ng-if="!pdfReady" class="wait">Wait a moment please...</div>
+  <a ng-href="/pdf/{{id}}.pdf" ng-if="pdfReady" ng-click="downloadPdf()" class="wait" download="mapa.pdf">
+    DOWNLOAD PDF
+  </a>
+</script>

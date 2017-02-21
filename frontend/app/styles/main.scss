@@ -1,0 +1,1098 @@
+$icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
+// bower:scss
+@import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+// endbower
+
+
+/* Colores */
+
+$color-casinegro: #333;
+$color-grisoscuro: #b3b3b3;
+$color-grisoscurodos: #666;
+$color-grisoscurotres: #4c4c4c;
+$color-gris:#ccc;
+$color-grisclaro: #e6e6e6;
+$color-grismasclaro: #f2f2f2;
+$color-ratingdiez: #3ab54a;
+$color-ratingnueve: #3ab54a;
+$color-ratingocho: #7fe543;
+$color-ratingsiete: #b8f422;
+$color-ratingseis: #cff23c;
+$color-ratingcinco: #ff9900;
+$color-ratingcuatro: #e9f762;
+$color-ratingtres: #d4f939;
+$color-ratingdos: #f5dc65;
+$color-ratinguno: #f24010;
+
+
+/* fonts */
+
+@font-face {
+  font-family: 'TradeGothicforNike365-BdCn';
+  src: url('../fonts/TradeGothicforNike365-BdCn.eot?#iefix') format('embedded-opentype'),  url('../fonts/TradeGothicforNike365-BdCn.woff') format('woff'), url('../fonts/TradeGothicforNike365-BdCn.ttf')  format('truetype'), url('../fonts/TradeGothicforNike365-BdCn.svg#TradeGothicforNike365-BdCn') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('../fonts/fontawesome-webfont.eot?v=4.3.0');
+  src: url('../fonts/fontawesome-webfont.eot?#iefix&v=4.3.0') format('embedded-opentype'), url('../fonts/fontawesome-webfont.woff2?v=4.3.0') format('woff2'), url('../fonts/fontawesome-webfont.woff?v=4.3.0') format('woff'), url('../fonts/fontawesome-webfont.ttf?v=4.3.0') format('truetype'), url('../fonts/fontawesome-webfont.svg?v=4.3.0#fontawesomeregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+h1.nike{
+    font-family:'TradeGothicforNike365-BdCn';
+    margin: 0 10px;
+    color:#fff;
+    font-size:29px;
+    line-height:1.7;
+    float:left;}
+
+h1.nike-negro{
+    font-family:'TradeGothicforNike365-BdCn';
+    color:$color-casinegro;
+    line-height: 1.5;
+    text-align:center;
+    margin-top:30px;}
+
+
+/* Main */
+
+html{width:100%; height:100%;}
+
+body{
+    color:$color-grisclaro;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    width:100%; height:100%; }
+
+
+/* login */
+
+.login-page{background-color:$color-grisoscuro;}
+
+.login-box{width:320px; background-color:#fff; position:absolute; left:50%; top:25%; margin-left:-170px; padding-bottom:40px;}
+
+.Login-header{background-color:$color-casinegro;width:100%; padding: 20px 0; overflow: auto;}
+
+.Login-header .logo{ width:100px; margin-left:110px; margin-top:0 !important;}
+
+.login-box h1{font-family:'TradeGothicforNike365-BdCn'; color:$color-casinegro; width:100%; text-align:center; margin-top:30px; margin-bottom:30px; font-size:25px;}
+
+.login-box input{
+    font-family:'TradeGothicforNike365-BdCn';
+    text-transform:uppercase;
+    border: solid 1px $color-casinegro;
+    width:170px;
+    height:35px;
+    margin-bottom:20px;
+    margin-left:75px;
+    color:$color-casinegro;
+    text-align:center;}
+
+    .login-box ::-webkit-input-placeholder {font-family:'TradeGothicforNike365-BdCn'; color:$color-casinegro; text-align:center; text-transform:uppercase;}
+    .login-box :-moz-placeholder {font-family:'TradeGothicforNike365-BdCn'; color:$color-casinegro; opacity:  1; text-align:center; text-transform:uppercase;}
+    .login-box ::-moz-placeholder {font-family:'TradeGothicforNike365-BdCn'; color:$color-casinegro; opacity:  1; text-align:center; text-transform:uppercase;}
+    .login-box :-ms-input-placeholder {font-family:'TradeGothicforNike365-BdCn'; color:$color-casinegro; text-align:center; text-transform:uppercase;}
+
+
+.login-box input.button{
+    background-color:$color-casinegro;
+    color:#fff;
+    font-size:18px;
+    width:120px; height:35px;
+    margin-bottom:20px;
+    margin-left:100px;
+    font-family:'TradeGothicforNike365-BdCn';
+    text-transform:uppercase;}
+
+
+
+
+/* Header */
+
+.nav-black{background-color:$color-casinegro; width:100%; height:50px; min-width:980px;}
+
+.logo{float:left; height:20px; margin-top:15px; margin-left:50px;}
+
+#logo {fill:#f15a25;}
+
+.nav-black a{color:#fff; text-decoration:none;}
+
+.nav-black a:hover{text-decoration:none; color:$color-grisclaro;}
+
+.name-user{float:right; position:relative; width:200px; padding-left:20px; height:50px;}
+
+.name-user:hover{background-color:#fff; border-bottom: 1px solid $color-grisclaro; color:$color-casinegro;}
+
+.name-user h3{float:left; font-size:13px; text-decoration:underline; color:#fff; margin-right:10px;}
+
+.name-user:hover h3{color:$color-casinegro;}
+
+.name-user svg{height:30px; float:right; margin-top:10px; margin-right:30px;}
+
+.name-user svg .head{fill:#fff}
+
+.name-user:hover svg .head{fill:$color-casinegro;}
+
+.name-user .menu-admin{position:absolute; top:50px; left:0; width:200px; z-index: 2; display:none;}
+
+.name-user .menu-admin div{
+    width:200px;
+    height:50px;
+    background-color:#fff;
+    color:$color-casinegro;
+    text-align:left;
+    border-bottom: 1px solid $color-grisclaro;
+    padding-left:20px;
+    line-height:50px;}
+
+.name-user .menu-admin div a{color:$color-casinegro;}
+
+.name-user .menu-admin div a:hover{color:$color-grisoscuro;}
+
+.name-user:hover .menu-admin{display:block;}
+
+
+.name-user {
+    .admin-photo{width:45px; height:45px; display:block; margin-right:10px; margin-top:2px; float:right; overflow:hidden; position:relative;
+    background-color:#fff;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;}
+
+    .admin-photo img{
+        height:100%;
+        width:auto;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, 0);
+    }
+}
+
+/* Content */
+
+.content-box{width:100%;
+    height: 100%;
+    position:relative;}
+
+.content{max-width:1500px;}
+
+/* Admind Home */
+
+.admin-nav{width:100%; height:50px; background-color:$color-grisoscurotres; font-family:'TradeGothicforNike365-BdCn'; color:#fff; display: table; text-transform:uppercase; font-size:25px;}
+
+.admin-nav .exit{height:50%; float: right; padding:0 40px;}
+
+.admin-nav a{color:#fff; text-decoration:none;}
+
+.admin-nav .back{height:50%; float: left; padding:0 40px;}
+
+.content-home-admin{position:relative; width:100%; min-height:100%; background-color: $color-grisoscurodos; overflow:auto;}
+
+.home-box-admin{width:500px; position:absolute; left:50%; margin-left:-250px; margin-top:50px; color:#fff;}
+
+.home-box-admin{
+    .user-admin h3{width:100%; text-align:center; font-size:16px; margin-bottom:0 !important;}
+    .user-admin h2{width:100%; text-align:center; font-family:'TradeGothicforNike365-BdCn'; font-size:40px; text-transform:uppercase; margin-bottom:10px;}
+    .user-admin h1{width:100%; text-align:center; font-family:'TradeGothicforNike365-BdCn'; font-size:28px; text-transform:uppercase; margin-bottom:30px;}
+    .user-admin .admin-photo{width:120px; height:120px; display:block; margin:0 auto; overflow:hidden; position:relative;
+        background-color:$color-casinegro;
+     -webkit-border-radius: 50%;
+     -moz-border-radius: 50%;
+    border-radius: 50%;}
+
+    .user-admin .admin-photo img{
+        height:100%;
+        width:auto;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, 0);
+    }
+
+    .user-admin{
+
+    .edit, .delete{padding:2px; margin:0 auto; margin-bottom:10px; border: 1px solid #fff; text-align:center; text-transform:uppercase; font-size:10px;}
+
+	.edit{width:40px; margin-top:10px;} .delete{width:70px;}
+
+	}
+
+    .edit-profile{width:90px;height:20px; padding:5px;color:#fff;margin:0 auto; margin-bottom:60px; line-height:1; border: 1px solid #fff; text-align:center; font-size:10px; text-transform:uppercase;}
+
+    .section{margin-bottom:30px;}
+
+    .section .header-icon{width:100%; background-color:$color-casinegro; padding: 10px 0; display:table;}
+
+    .section .header-icon img{width:20%;display:block; margin:0 auto;}
+
+    .section .title-section{
+        width:100%;
+        height:80px;
+        background-color:#fff;
+        text-align:center;
+        color:$color-casinegro;
+        font-family:'TradeGothicforNike365-BdCn';
+        line-height:2;
+        font-size:38px;
+        text-transform:uppercase;
+    	margin-bottom:5px;}
+
+    .section .title-section input{width:100%; height:80px; border:none; text-align:center; color:$color-casinegro;}
+
+    .section .title-section ::-webkit-input-placeholder {color:$color-casinegro !important; text-align:center; text-transform:uppercase; }
+    .section .title-section :-moz-placeholder { color:$color-casinegro !important; opacity: 1; text-align:center; text-transform:uppercase;}
+    .section .title-section ::-moz-placeholder { color:$color-casinegro !important; opacity: 1; text-align:center; text-transform:uppercase; }
+    .section .title-section :-ms-input-placeholder { color:$color-casinegro !important; text-align:center; text-transform:uppercase;}
+
+    .section .title-section input:focus::-webkit-input-placeholder{
+    color: transparent!important;
+    }
+    .section .title-section input:focus::-moz-placeholder{
+    color: transparent!important;
+    }
+    .section .title-section input:focus:-moz-placeholder{
+    color: transparent!important;
+    }
+
+    .create-user{
+        width:90%;
+        height:80px;
+        margin:0 auto;
+        background-color:#fff;
+        text-align:center;
+        color:$color-grisoscurodos;
+        font-family:'TradeGothicforNike365-BdCn';
+        line-height:2;
+        font-size:38px;
+        text-transform:uppercase;
+    	margin-bottom:30px;}
+}
+
+.save-user input{background-color:#39B54A !important; color:#fff !important;}
+
+.admininput{background-color:transparent !important; color:#fff !important; font-size:25px !important;}
+
+.admininput .center-input{width:50%; margin: 0 auto; text-align:left; line-height:3.5;}
+
+.inputmessage{position:absolute; bottom:-20px; left:0;}
+
+.admininput .center-input .checkboxFour input[type=checkbox] {
+    visibility: hidden;
+}
+
+.admininput .center-input .checkboxFour {
+    width: 25px;
+    height: 25px;
+    background:#fff;
+    margin: 30px 20px;
+    float:left;
+    border-radius: 100%;
+    position: relative;
+}
+
+.admininput .center-input .checkboxFour label {
+    display: block;
+    width: 17px;
+    height: 17px;
+    border-radius: 100px;
+
+    -webkit-transition: all .5s ease;
+    -moz-transition: all .5s ease;
+    -o-transition: all .5s ease;
+    -ms-transition: all .5s ease;
+    transition: all .5s ease;
+    cursor: pointer;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    z-index: 1;
+
+    background:$color-gris;
+}
+
+.admininput .center-input .checkboxFour input[type=checkbox]:checked + label {
+    background:$color-casinegro;
+}
+
+.admininput input{width:15% !important; float:left;}
+
+.content-user{max-width:1100px; margin-top:300px;}
+
+.catalogo input{width:60%; height:50px; border:none; text-transform:uppercase; text-align:center; color:$color-grisoscuro; font-family:'TradeGothicforNike365-BdCn'; font-size:30px; float:left;}
+
+    .catalogo ::-webkit-input-placeholder {color:$color-grisoscuro !important; text-align:center; text-transform:uppercase; }
+    .catalogo :-moz-placeholder { color:$color-grisoscuro !important; opacity: 1; text-align:center; text-transform:uppercase;}
+    .catalogo ::-moz-placeholder { color:$color-grisoscuro !important; opacity: 1; text-align:center; text-transform:uppercase; }
+    .catalogo :-ms-input-placeholder { color:$color-grisoscuro !important; text-align:center; text-transform:uppercase;}
+
+.catalogo button{width:20%; height:50px; background-color:$color-casinegro; color:#fff; margin:0 !important; padding: 0!important; border:none !important; float:left; font-family:'TradeGothicforNike365-BdCn'; font-size:30px;}
+
+.catalogo button.savecatalogo{background-color:#39B54A;}
+
+.col-user{
+        width:150px;
+        float:left;
+        margin: 0 25px;}
+
+.col-user{
+
+	img{width:100%; height:auto;}
+
+	h1{font-family:'TradeGothicforNike365-BdCn'; width:100%; text-align:center; text-transform:uppercase; color:#fff;font-size:28px;}
+
+	.edit, .delete{padding:2px; margin:0 auto; margin-bottom:10px; border: 1px solid #fff; text-align:center; text-transform:uppercase; font-size:10px;}
+
+	.edit{width:40px;} .delete{width:70px;}
+
+    .admin-photo{width:150px; height:150px; display:block; float:right; overflow:hidden; position:relative;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;}
+
+    .admin-photo img{
+        height:100%;
+        width:auto;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, 0);
+    }
+}
+
+
+.col-territories{
+        float:left;
+        margin: 0 10px;
+        margin-bottom:10px;
+    	color:#fff;
+    	border:1px solid #fff;
+    	position:relative;}
+
+
+.col-territories{
+
+		h1{text-transform:uppercase; text-align:center; font-family:'TradeGothicforNike365-BdCn'; margin:10px 15px;}
+		i {position:absolute; right:5px; top:5px;}
+}
+
+
+/* Media Select */
+
+.content-home{position:relative; width:100%; min-height:100%; background-color: $color-grisoscuro; overflow:auto;}
+
+.home-box{width:500px; position:absolute; left:50%; margin-left:-250px; margin-top:50px; color:#fff;}
+
+.home-box{
+    .user h3{width:100%; text-align:center; font-size:16px; margin-bottom:0 !important;}
+    .user h1{width:100%; text-align:center; font-family:'TradeGothicforNike365-BdCn'; font-size:28px; text-transform:uppercase; margin-bottom:30px;}
+    .user .admin-photo{width:120px; height:120px; display:block; margin:0 auto; overflow:hidden; position:relative;
+        background-color:$color-casinegro;
+    -webkit-border-radius: 50%;
+     -moz-border-radius: 50%;
+    border-radius: 50%;}
+
+    .user .admin-photo img{
+        height:100%;
+        width:auto;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, 0);
+    }
+
+    .section{margin-bottom:30px;}
+
+    .section .header-icon{width:100%; background-color:$color-casinegro; padding: 10px 0; display:table;}
+
+    .section .header-icon img{width:20%;display:block; margin:0 auto;}
+
+    .section .title-section{
+        width:100%;
+        height:80px;
+        background-color:#fff;
+        text-align:center;
+        color:$color-casinegro;
+        font-family:'TradeGothicforNike365-BdCn';
+        line-height:2;
+        font-size:38px;
+        text-transform:uppercase;}
+}
+
+
+
+
+/* Medias*/
+
+.medias{font-family:'TradeGothicforNike365-BdCn';}
+.medias{
+    .media-title{
+        width:100%;
+        overflow: auto;
+        background-color:$color-casinegro;
+        color:#fff;text-align:center;
+        text-transform:uppercase;
+        display: table;}
+
+    .media-title h1{font-size:46px; margin-top:10px; margin-bottom:30px;}
+
+    .title-section{
+        width:100%;
+        height:80px;
+        background-color:#fff;
+        color:$color-casinegro;
+        font-size:34px;
+        line-height:2.5;
+        text-align:center;
+        text-transform:uppercase;
+        margin-bottom:5px;
+        display: table;}
+
+    .media-title img{width:20%; margin-top:20px;}
+}
+
+
+
+
+/* Maps*/
+
+.maps{font-family:'TradeGothicforNike365-BdCn'; text-transform:uppercase; width:700px !important; margin-left:-350px !important;}
+.maps{
+    h1{width:100%; text-align:center;}
+    .map-titles-row{width:100%;background-color:$color-casinegro;color:#fff; overflow: auto; font-size: 18px;}
+    .name{width:60%; float:left; padding:10px;}
+    .modified{width:20%; float:left; padding:10px;}
+    .edit{width:10%; float:left; padding:10px;}
+    .trash{width:10%; float:left; padding:10px;}
+
+    .edit img{width:60%;}
+    .trash img{width:60%;}
+
+    .map-row{width:100%;background-color:#fff;color:$color-casinegro;overflow:auto; font-size: 20px; margin-bottom:5px;}
+    .map-row .name{font-size: 26px;}
+    .map-row .modified,.map-row .edit,.map-row .trash{line-height:2;}
+}
+
+
+
+
+/* Maps Menu */
+
+.content-block{width:80%; margin:0 auto; max-width:1200px; min-width:980px;}
+
+.map-data{width:100%; background-color:$color-grisoscuro; font-family:'TradeGothicforNike365-BdCn'; color:#fff; display:table;}
+
+.map-data{
+    h1{ margin:0 !important; padding:0; vertical-align: middle; font-size:20px;text-transform:uppercase; padding-top:13px;}
+    .media-title{float:left; width:25%; height:50px; text-align:center; border-right: solid 1px #fff; box-sizing: border-box;}
+    .map-title{float:left; width:50%; height:50px; text-align:center; box-sizing: border-box;}
+    .view-map{float:left; width:25%; height:50px; text-align:center; border-left: solid 1px #fff; box-sizing: border-box;}
+
+    .map-title input{width:100%; height:50px; background-color:transparent; border:none; font-size: 20px; text-align:center; text-transform:uppercase;}
+
+    .map-title ::-webkit-input-placeholder {color:#fff; font-size: 20px; text-align:center; text-transform:uppercase; }
+    .map-title :-moz-placeholder { color:#fff; opacity:  1; font-size: 20px; text-align:center; text-transform:uppercase;}
+    .map-title ::-moz-placeholder { color:#fff; opacity:  1; font-size: 20px; text-align:center; text-transform:uppercase; }
+    .map-title :-ms-input-placeholder { color:#fff; font-size: 20px; text-align:center; text-transform:uppercase;}
+}
+
+.map-arrange{width:100%; background-color:$color-grismasclaro; font-family:'TradeGothicforNike365-BdCn'; color:$color-grisoscuro;display: table;}
+
+.map-arrange {
+    button{
+        background-color:transparent;
+        width: 14%;
+        border:none;
+        border-right: solid 1px #fff !important;
+        height:50px;
+        color:$color-grisoscuro;
+        text-transform:uppercase;
+        font-size:13px;
+        -webkit-border-radius: 0px;
+        -moz-border-radius: 0px;
+        -o-border-radius: 0px;
+        border-radius: 0px;
+        padding-right:5px;}
+
+    span.filter-option.pull-left{text-align:center !important; width: 75% !important;}
+    .btn-group.open .dropdown-toggle{box-shadow:none; color:$color-grisoscuro;}
+
+    .dropdown-menu{
+        border: 1px solid #fff !important;
+        background-color:$color-grismasclaro;
+        -webkit-border-radius: 0px;
+        -moz-border-radius: 0px;
+        -o-border-radius: 0px;
+        border-radius: 0px;
+        color:$color-grisoscuro;
+        font-size:20px;
+        text-transform:uppercase;
+        margin-top:0 !important;
+        padding-top:0 !important;
+    }
+
+    ul.dropdown-menu{border:none !important;}
+
+    ul.dropdown-menu li a{color:$color-grisoscuro; border-bottom:1px solid #fff;}
+
+    ul.dropdown-menu li:last-child a{border:none !important;}
+
+    .bootstrap-select{width:16% !important; float:left;}
+
+    .search {float:right; width:24%; box-sizing: border-box; line-height:3.5;}
+
+    input {background-color:transparent; border:none; border-bottom: 1px solid $color-grisoscuro; width:60%; height:40px; margin-left:10px; float:left;}
+
+
+    .markets button::before{font-family: 'FontAwesome'; content: url("../images/mapita.png"); float:left;}
+
+    .markets span.filter-option{line-height:2;}
+
+    .genre button::before{font-family: 'FontAwesome'; content: "\f0b0"; float:left;}
+
+    .order button::before{font-family: 'FontAwesome'; content: "\f0dc"; float:left;}
+
+    .position button::before{font-family: 'FontAwesome'; content: "\f0b1"; float:left;}
+
+}
+
+.save{
+    font-family:'TradeGothicforNike365-BdCn';
+    font-size:20px;
+    text-transform:uppercase;
+    background-color:#39B54A;
+    position: fixed;
+    right:20px;
+    top:110px;
+    border:none;
+    color:#fff;
+    width:90px;
+    height:90px;
+    -webkit-border-radius:50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    z-index:100000;}
+
+
+.map-buttons{width:100%;border-bottom: 1px solid $color-grismasclaro; font-family:'TradeGothicforNike365-BdCn'; color:$color-grisoscuro; display:table; text-align:center;}
+
+.content-map-block{width:1000px; margin:0 auto;padding:0 10px;}
+.content-map-block h1{margin: 0 !important; padding: 0; float:left; text-transform:uppercase}
+.content-map-block div {float:right; padding:0 15px ; font-size: 17px; text-transform:uppercase; line-height:2.2; border-left:1px solid $color-grismasclaro;}
+.content-map-block div img{height:25px; float:left; margin:7px;}
+.content-map-block div:hover {opacity:.7;}
+.content-map-block div a {color:$color-grisoscuro; text-decoration:none;}
+
+/* MediaCard Content */
+
+.col-mediacard{
+        width:320px;
+        float:left;
+        margin: 0 15px;}
+
+.media-card{
+        border: 2px solid $color-grisoscuro;
+        background-color:#fff;
+        position:relative;
+        margin-top:30px;
+        width: 100%;
+        display: inline-block;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;}
+
+.media-card {
+    .profile-img{
+        background: url(../images/profile-img.png) no-repeat center center;
+        overflow:hidden;
+        position:relative;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        height:320px;}
+
+    .profile-img img{
+        height:100%;
+        width:auto;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, 0);}
+
+
+    .rating-value{
+        width:25px;
+        height:25px;
+        text-align:center;
+        -webkit-border-radius:50%;
+        -moz-border-radius: 50%;
+        border-radius: 50%;
+        float:left;
+        margin-top:10px;
+        margin-left:10px;
+        position: absolute;
+        font-size:13px;
+        font-weight:bold;
+        line-height:2;
+        color:#fff;}
+
+
+    .add-picture{
+        width:90px;
+        height:20px;
+        background-color:#fff;
+        text-align:center;
+        position:absolute;
+        top:10px;
+        right:10px;
+        font-size:13px;
+        text-transform:uppercase;
+        line-height:1.5;
+        color:$color-gris;}
+
+    .add-picture .glyphicon {margin-left:2px; top:0 !important;}
+
+    .add-picture:hover{background-color:$color-gris;color:#fff;}
+
+    .data-list div{
+        text-align:center;
+        color:$color-grisoscuro;
+        padding-top:5px;
+        padding-bottom:5px;
+        padding: 0 10px;
+        line-height: 2;}
+
+    .data-list div:nth-child(even){background-color:$color-grismasclaro;}
+    .data-list .name{color:#fff; font-weight:bold; font-size:16px; line-height:1.7;}
+
+    .social{min-height:30px; text-align:center; color:$color-grisoscuro; line-height:3; border-bottom: 2px solid $color-grismasclaro;font-size: 12px;}
+    .social div{border-right: 2px solid $color-grismasclaro;}
+    .social div:last-child{border-right: 2px solid $color-grismasclaro;}
+
+    .social.row{margin:0 !important; font-size: 15px;}
+    .social i{
+        width:22px;
+        height:22px;
+        background-color:$color-grisoscuro;
+        color:#fff;
+        -webkit-border-radius:50%;
+        -moz-border-radius: 50%;
+        border-radius: 50%;
+        margin-right:5px;
+        line-height:1.5;}
+
+    .data-personal div{min-height:30px; text-align:center; line-height:3; color:$color-grisoscuro;}
+    .data-personal div{background-color:$color-grismasclaro;}
+
+    .tags-box h1{font-size:14px; text-align:center; font-weight:normal; color:$color-grisoscuro;}
+    .tags.row{padding: 0 20px; margin-bottom:30px;}
+    .tag{
+        background-color:$color-grismasclaro;
+        font-size:9px;
+        text-align:center;
+        text-transform:uppercase;
+        color:$color-grisoscuro;
+        -webkit-border-radius:5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+        padding:3px 0;
+        }
+
+    .notes-box h1{
+        font-size:14px;
+        text-align:center;
+        margin-top:20px;
+        padding-top:20px;
+        font-weight:normal;
+        color:$color-grisoscuro;
+        border-top: 2px solid $color-grismasclaro;}
+    .notes-box div{padding: 0 10px; font-size:12px; text-align:center; margin-bottom:10px; color:$color-grisoscuro;}
+
+    .medias{font-family: sans-serif !important; line-height:2 !important;}
+
+}
+
+.hide-text .media-card .data-list div{height:30px !important; overflow:hidden;text-overflow: ellipsis; white-space:nowrap;}
+
+.profile-edit{
+        width:20px;
+        height:20px;
+        background-color:#fff;
+        text-align:center;
+        position:absolute;
+        top:35px;
+        right:20px;
+        font-size:13px;
+        text-transform:uppercase;
+        line-height:1.5;
+        color:$color-gris;
+        z-index: 2}
+
+/* MediaCard Create */
+
+.create{width:570px;position:absolute; margin-left:50%; left:-410px; margin-bottom:30px; margin-top:30px; display:table;}
+
+.create-profile{width:300px; float:left; display:block; margin-top:0;}
+
+.create-profile{
+
+    ul.rating-list{
+        list-style:none;
+        padding:0;
+        margin: 0;
+        background-color:$color-grisoscuro;
+    }
+
+    ul.rating-list li{cursor:pointer;}
+
+    ul.rating-list li:hover{
+        color:$color-grisoscuro;
+        background-color:$color-grismasclaro;
+    }
+
+    ul.rating-list li:nth-child(1){background-color:$color-grismasclaro;}
+
+    ul.rating-list li:nth-child(-n+4){background-color:$color-ratinguno;}
+
+    ul.rating-list li:nth-child(5){background-color:#ff9900;}
+    ul.rating-list li:nth-child(6){background-color:#ff9900;}
+    ul.rating-list li:nth-child(7){background-color:#ff9900;}
+    ul.rating-list li:nth-child(8){background-color:#3ab54a;}
+    ul.rating-list li:nth-child(9){background-color:#3ab54a;}
+    ul.rating-list li:nth-child(10){background-color:#3ab54a;}
+    ul.rating-list li:nth-child(11){background-color:#3ab54a;}
+
+    .rating-value .btn-group button span.filter-option{text-align:center !important; color:$color-grisoscuro;}
+    .open > .btn-default.dropdown-toggle:hover{background-color:transparent;}
+    .btn-group.open .dropdown-toggle{box-shadow:none !important;}
+    .rating-value span.filter-option{color: #fff !important;}
+
+    .genres .btn-group, .genres , .territories, .territories .btn-group{padding:0 !important; margin:0; width:100% !important;}
+    .genres .btn-group button{background-color:$color-grismasclaro; border:none; border-radius:0 !important;}
+    .territories .btn-group button{background-color:#fff; border:none; border-radius:0 !important;}
+    .genres .btn-group button span.filter-option, .territories .btn-group button span.filter-option{text-align:center !important; color:$color-grisoscuro;}
+
+    .tags{min-height:100px; margin-bottom:0 !important;}
+    input,.data-list div{padding:0 !important; margin:0; width:100% !important; border:none; text-align:center; background-color:transparent; min-height:30px; line-height: 1;}
+
+    textarea{width:100%; border:none;}
+
+    ::-webkit-input-placeholder {color:$color-grisoscuro; font-size: 14px; font-weight: normal;}
+    :-moz-placeholder { color:$color-grisoscuro; opacity:  1; font-size: 14px; font-weight: normal;}
+    ::-moz-placeholder { color:$color-grisoscuro; opacity:  1; font-size: 14px; font-weight: normal;}
+
+    .notes-box ::-webkit-input-placeholder {color:$color-gris; font-size: 12px; font-weight: normal;}
+    .notes-box :-moz-placeholder { color:$color-gris; opacity:  1; font-size: 12px; font-weight: normal;}
+    .notes-box ::-moz-placeholder { color:$color-gris; opacity:  1; font-size: 12px; font-weight: normal;}
+    .notes-box :-ms-input-placeholder { color:$color-gris; font-size: 12px; font-weight: normal;}
+
+    .name ::-webkit-input-placeholder {color:#fff;}
+    .name :-moz-placeholder { color:#fff; opacity:  1;}
+    .name ::-moz-placeholder { color:#fff; opacity:  1;}
+    .name :-ms-input-placeholder { color:#fff;}
+
+    .medias-box{width:100%; border:none;}
+    .angular-tagger__tag{
+        background:$color-grisoscuro;
+        padding: 1px;}
+    .angular-tagger__matching-item--selected{background:$color-grisoscuro;}
+
+    button.submit{
+        background-color:#39B54A;
+        color:#fff;
+        text-transform: uppercase;
+        font-family:'TradeGothicforNike365-BdCn';
+        font-size:20px;
+        border:none;
+        width:100%;}
+
+    button.submit:hover{opacity:.7;}
+
+    .angular-tagger__hook{min-height: 0 !important;}
+}
+
+
+.column-text{width:250px; float:left;}
+.column-text h1{font-family:'TradeGothicforNike365-BdCn'; color:$color-grisoscuro; font-size:20px; text-transform: uppercase; padding:0; margin:0;}
+.column-text h2{font-family:'TradeGothicforNike365-BdCn'; color:$color-grisoscuro; font-size:14px; text-transform: uppercase; padding:0; margin:0;}
+.column-text p{color:$color-grisoscuro; font-size:12px; padding:0; margin:0;}
+
+.story-lines, .relationship{width:250px; float:left;}
+.relationship{height:615px;}
+
+.story-lines .tag{
+        background-color:$color-grismasclaro;
+        margin-top:10px;
+        max-width:70px;
+        font-size:9px;
+        margin-right:5px;
+        text-align:center;
+        text-transform:uppercase;
+        color:$color-grisoscuro;
+        -webkit-border-radius:5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+        padding:3px 0;
+}
+
+.block-card{display:table; float:left; position:relative;}
+
+.block-card .add-card{
+    position:absolute;
+    width:23px;
+    height:23px;
+    background-color:$color-grismasclaro;
+    color:$color-gris;
+    text-align:center;
+    top:41px;
+    right:25px;
+    font-size:17px;
+    line-height:1.5;
+    -webkit-border-radius:50%;
+    -moz-border-radius:50%;
+    border-radius: 50%;
+    z-index:1000;}
+
+.block-card .add-card:hover{opacity:.7;}
+
+.create .deleteprofile{position:absolute; width:200px; top:0; right:-120px; background-color:#ffcccc; color:#ff3333; border: 1px solid #ff3333; font-family:'TradeGothicforNike365-BdCn'; text-transform:uppercase; font-size:18px; text-align:center;}
+
+.create .viewallprofiles{text-transform:uppercase; font-family:'TradeGothicforNike365-BdCn'; color:$color-grisoscuro; font-size:20px; width:320px; margin-left:320px; margin-bottom:50px; margin-top:50px; float:left;}
+
+.create .viewallprofiles:hover{color:$color-grismasclaro;}
+
+/* Extras */
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus,
+:focus {
+    outline: none;
+}
+
+.btn:active{box-shadow:none;}
+
+
+.modal-content, .modal-dialog{width:320px;}
+
+
+.modal-content .media-card{margin:0 !important;}
+
+ .as-sortable-item,
+ .as-sortable-placeholder {
+   display: inline-block;
+   width: 320px !important;
+   float: left;
+ }
+
+
+ #sortable-container {
+   display: inline-block;
+ }
+
+.pointer{cursor:pointer;}
+
+.lupa{cursor: -webkit-zoom-in; cursor: -moz-zoom-in;}
+
+.alerta-fixed{position:fixed !important;}
+
+.confirm-delete{
+    background-color:#f15a25;
+    font-family:'TradeGothicforNike365-BdCn';
+    text-align:center;
+    color:#fff;
+    font-size:20px;
+    text-transform: uppercase;
+    text-align:center;
+    -webkit-border-radius:5px;
+    -moz-border-radius:5px;
+    border-radius:5px;}
+
+.confirm-delete button{background-color:$color-casinegro; border:none; color:#fff;text-transform: uppercase;}
+
+
+.wait{background-color:$color-casinegro; border:none; color:#fff;text-transform: uppercase; font-family:'TradeGothicforNike365-BdCn'; padding:20px;}
+
+a.wait{
+    background-color:$color-casinegro;
+    border:none;
+    color:#fff;
+    text-transform: uppercase;
+    font-family:'TradeGothicforNike365-BdCn';
+    padding:20px;
+    text-decoration:none;
+    width: 100%;
+    display: block;
+    text-align: center;
+    font-size: 20px;}
+
+
+input:focus::-webkit-input-placeholder{
+    color: transparent!important;
+}
+input:focus::-moz-placeholder{
+    color: transparent!important;
+}
+input:focus:-moz-placeholder{
+    color: transparent!important;
+}
+
+textarea:focus::-webkit-input-placeholder{
+    color: transparent!important;
+}
+textarea:focus::-moz-placeholder{
+    color: transparent!important;
+}
+textarea:focus:-moz-placeholder{
+    color: transparent!important;
+}
+
+.color-block{width:15px; height:15px; display:inline-block; vertical-align:middle;}
+
+.imgcube{visibility: hidden;}
+
+.clear{clear:both;}
+
+.notify-error {position: fixed;}
+
+.greencard{background-color:#ace0b3 !important; color:#39B54A !important; border: 1px solid #39B54A;}
+
+.tooltip-inner{background-color:$color-casinegro; font-family:'TradeGothicforNike365-BdCn'; font-size:18px !important; border:none;}
+
+.tooltip {border:none !important;}
+
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-1{
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+}
+
+
+/* Colores media cards */
+
+.diez .rating-value, .diez .name, .rating-valuediez{background-color:$color-ratingdiez !important;}
+.nueve .rating-value, .nueve .name{background-color:$color-ratingnueve !important;}
+.ocho .rating-value, .ocho .name{background-color:$color-ratingocho !important;}
+.siete .rating-value, .siete .name{background-color:$color-ratingsiete !important;}
+.seis .rating-value, .seis .name{background-color:$color-ratingseis !important;}
+.cinco .rating-value, .cinco .name, .rating-valuecinco{background-color:$color-ratingcinco !important;}
+.cuatro .rating-value, .cuatro .name{background-color:$color-ratingcuatro !important;}
+.tres .rating-value, .tres .name{background-color:$color-ratingtres !important;}
+.dos .rating-value, .dos .name{background-color:$color-ratingdos !important;}
+.uno .rating-value, .uno .name, .rating-valueuno{background-color:$color-ratinguno !important;}
+.no-rating .rating-value, .no-rating .name{background-color:$color-grisoscuro !important;}
+
+
+
+@media print {
+
+	.nav-black{height: 40px !important;}
+
+    .media-card .data-list .name p{
+        color: #fff !important;
+		font-weight: bold !important;
+		font-size: 7px !important;
+		line-height:3 !important;
+    }
+
+    .media-card .data-list div p{
+    	font-size: 7px !important;
+		color: #b3b3b3 !important;
+		-webkit-print-color-adjust: exact;
+    }
+
+
+    .media-card .rating-value{
+    	width: 11px !important;
+		height: 11px !important;
+    	font-size:6px !important;
+		font-weight: bold !important;
+		line-height: 1.8 !important;
+		color: #fff !important;
+    }
+
+    .media-card .social i{
+    color: #fff !important;
+    -webkit-print-color-adjust: exact;}
+
+    .media-card .data-personal div{background-color: #f2f2f2 !important; -webkit-print-color-adjust: exact; height:20px !important;}
+
+    .media-card .social i{
+    width: 10px !important;
+    height: 10px !important;
+    background-color: #b3b3b3 !important;
+    -webkit-print-color-adjust: exact;}
+
+    .media-card .social div{
+        font-size: 7px !important;
+        color: #b3b3b3 !important;
+        -webkit-print-color-adjust: exact;
+    }
+
+    .media-card .tags-box h1{
+        font-size: 7px !important;
+        color: #b3b3b3 !important;
+        -webkit-print-color-adjust: exact;
+    }
+
+    .media-card .tag{background-color: #f2f2f2 !important;color: #b3b3b3 !important;-webkit-print-color-adjust: exact;font-size: 7px !important;}
+
+    .nav-black {
+    	background-color:transparent !important;
+    	-webkit-print-color-adjust: exact;
+        border-bottom: 2px solid $color-grismasclaro;
+	}
+
+    .media-card .notes-box h1{color: #b3b3b3 !important; -webkit-print-color-adjust: exact;font-size: 7px !important;}
+
+    .media-card .notes-box div{color: #b3b3b3 !important; -webkit-print-color-adjust: exact;font-size: 7px !important;}
+
+    .content-map-block h1{font-size:30px !important; padding-top:10px !important;}
+
+	.map-arrange, .link, .print, .pdf, .name-user, h1.nike{
+		display:none !important;
+	}
+
+	.media-card{border: 1px solid #b3b3b3 !important;}
+
+    full-card.col-mediacard{width:5cm !important; margin-left:.7cm !important;}
+
+    full-card .media-card .profile-img {height:5cm !important}
+
+	.col-mediacard{width:3cm !important; margin-left:.1cm !important;}
+
+	.media-card .profile-img {height:3cm !important}
+
+	.media-card .data-list div:nth-child(even){background-color: #f2f2f2 !important; -webkit-print-color-adjust: exact; }
+
+	.hide-text .media-card .data-list div {height:20px !important;}
+
+	.logo{position:absolute !important; left: 0; height:25px !important;}
+
+    #logo {
+         fill:$color-grisoscuro !important;
+       }
+
+	h1.nike{position:absolute !important; left: 60px; font-size: 15px !important;}
+
+	.logo{height: 10px; margin-top: 8px;}
+
+	.map-buttons h1{font-size: 18px; color: #b3b3b3 !important;}
+
+	.hide-text .media-card .data-list div{height: 20px !important;}
+
+    *,
+    *:before,
+    *:after {
+        color: #fff !important;
+        -webkit-print-color-adjust: exact;
+    }
+}
+
+@media print and (color) {
+   * {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+   }
+}

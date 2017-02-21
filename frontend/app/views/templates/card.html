@@ -1,0 +1,16 @@
+<div class="media-card"
+     ng-class="{uno: card.rating <= 3, cinco: card.rating > 3 && card.rating < 7, diez: card.rating >= 7 }">
+  <div class="profile-img">
+    <img class="img-profile" ng-src="{{card.img}}">
+    <div class="rating-value">
+      {{card.rating}}
+    </div>
+  </div>
+  <div class="data-list">
+    <div class="name"><p>{{card.name}}</p>></div>
+    <div><p>{{card.medias | joinArray }}</p></div>
+    <div><p>{{card.positions | joinArray}}</p></div>
+    <div><p>{{card.genres | joinArray}}</p></div>
+    <div><p>{{card.territories | joinArray}}</p></div>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="content-home">
+
+    <div class="home-box">
+
+      <div class="user">
+        <div class="admin-photo"><img ng-src="{{user.img || '../images/user.svg'}}"></div>
+        <h3>Logged in as:</h3>
+        <h1>{{user.username}}</h1>
+      </div>
+
+      <div class="section">
+        <div class="header-icon"><img src="../images/maps.svg"></div>
+        <div class="title-section pointer" ng-click="goMaps()">Media Maps</div>
+      </div>
+
+      <div class="section">
+        <div class="header-icon"><img src="../images/profile.svg"></div>
+        <div class="title-section pointer"  ng-click="goProfiles()">Media profiles</div>
+      </div>
+
+    </div>
+
+</div>

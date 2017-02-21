@@ -1,0 +1,36 @@
+<div class="content-home-admin">
+
+  <admin-bar></admin-bar>
+
+  <div class="home-box-admin">
+    <div class="user-admin">
+      <h2>Users</h2>
+      <div ng-click="goNewClient()" class="create-user pointer">Create New</div>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="container-fluid content-user">
+    <div class="cols">
+      <div ng-repeat="user in users">
+        <div class="col-user">
+          <div class="admin-photo"><img ng-src="{{user.img || '../images/user.svg'}}"></div>
+          <h1>{{user.username}}</h1>
+          <div class="edit pointer" ng-click="editUser(user.id)">Edit</div>
+          <div class="delete pointer" ng-click="deleteUser(user)">Delete</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/ng-template" id="delete-user-modal.html">
+ <div class="confirm-delete">
+  <div class="modal-body">
+    <p>Delete {{user.username}}</p>
+    <p>this action cannot be undone</p>
+  </div>
+  <div class="modal-footer">
+    <button ng-click="delete()">Delete</button>
+    <button ng-click="cancel()">Cancel</button>
+  </div>
+</div>
+</script>

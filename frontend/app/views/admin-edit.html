@@ -1,0 +1,77 @@
+<div class="content-home-admin">
+
+  <admin-bar></admin-bar>
+
+  <div class="home-box-admin">
+
+    <div class="user-admin">
+      <h2>Edit User Profile</h2>
+      <div class="admin-photo"><img ng-src="{{user.img || '../images/user.svg'}}"></div>
+      <div class="edit pointer" ng-click="clickUploadFile()">
+        Edit
+      </div>
+      <input id="imgup" name="file" type="file" accept="image/*" file-model="myFile"
+             style="position: relative; visibility: hidden; z-index: 2; opacity: 0;">
+    </div>
+
+    <form class="section" name="newUser" ng-submit="save()">
+
+      <div class="title-section">
+        <input type="email" placeholder="E-mail" name="email" ng-model="user.email"
+               required admin-email />
+      </div>
+      <div ng-messages="newUser.email.$error" ng-if="newUser.email.$touched || newUser.$submitted">
+        <div ng-message="required">Email is required</div>
+        <div ng-message="email">invalid value for email</div>
+        <div ng-message="uniqueEmail">Email already in use</div>
+      </div>
+
+      <div class="title-section">
+        <input type="text" placeholder="Username"
+               name="username"
+               ng-model="user.username"
+               ng-minlength="4"
+               ng-maxlength="20"
+               required admin-username />
+      </div>
+      <div ng-messages="newUser.username.$error" ng-if="newUser.username.$touched || newUser.$submitted">
+        <div ng-message="required">Username is required</div>
+        <div ng-message="minlength">Username is too short</div>
+        <div ng-message="minlength">Username is too large</div>
+        <div ng-message="uniqueUsername">Username already in use</div>
+      </div>
+
+      <div class="title-section">
+        <input type="password" placeholder="Password" name="password" ng-model="user.password"
+               ng-minlength="8" ng-model-options="{ updateOn: 'blur' }" required/>
+      </div>
+      <div ng-messages="newUser.password.$error" ng-if="newUser.password.$touched || newUser.$submitted">
+        <div ng-message="required">Password is required</div>
+        <div ng-message="minlength">Password needs to be at least 8 characteres</div>
+      </div>
+
+      <div class="title-section">
+        <input type="password" placeholder="Confirm Password" name="confirmPassword" ng-model="user.confirmPass"
+               compare-to="user.password" ng-model-options="{ updateOn: 'blur' }" required />
+      </div>
+      <div ng-messages="newUser.confirmPassword.$error" ng-if="newUser.confirmPassword.$touched || newUser.$submitted">
+        <div ng-message="required">Password is required</div>
+        <div ng-message="compareTo">Must match the previous entry</div>
+      </div>
+
+      <div class="title-section admininput">
+        <div class="center-input">
+          <div class="checkboxFour">
+            <input type="checkbox" value="1" id="checkboxFourInput" ng-model="user.admin"/>
+            <label for="checkboxFourInput"></label>
+          </div>
+          Administrator
+        </div>
+      </div>
+
+      <div class="title-section save-user pointer">
+        <input type="submit" name="save" value="SAVE">
+      </div>
+    </form>
+  </div>
+</div>

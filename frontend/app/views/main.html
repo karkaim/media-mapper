@@ -1,0 +1,35 @@
+<div class="map-data">
+  <div class="content-block">
+    <div class="media-title" ng-click="aMisMapas()">
+      <h1>My Maps</h1>
+    </div>
+    <div class="map-title">
+      <input type="text" ng-model="map.name" placeholder="Add Map Name">
+    </div>
+    <div class="view-map" ng-click="aMapa()">
+      <h1>View map</h1>
+    </div>
+  </div>
+</div>
+
+<arrange-bar></arrange-bar>
+
+<div class="container-fluid content">
+  <div class="cols">
+    <div ng-repeat="item in cards | filterByTerr:terrFilter | filterByGenre:genreFilter | filterByStory:storylineFilter | filterByComm:communityFilter | filterByPos:positionFilter | filterByFn:functionFilter | customOrder:order| queryFilter:query">
+      <div class="block-card">
+        <div class="add-card pointer" ng-if="map.cards.indexOf(item.id) == -1"
+             ng-click="addToArray(item.id)"><span class="glyphicon glyphicon-plus"></span></div>
+        <div class="add-card pointer" ng-if="map.cards.indexOf(item.id) > -1"
+             ng-click="removeFromArray(item.id)"><span class="glyphicon glyphicon-minus"></span></div>
+        <card ng-click="open(item)" mycard="item" class="col-mediacard hide-text lupa"></card></div>
+    </div>
+  </div>
+
+</div>
+
+<button class="save" ng-click="saveMap()">Save Map</button>
+
+<script type="text/ng-template" id="cardModal.html">
+  <full-card mycard="card"></full-card>
+</script>

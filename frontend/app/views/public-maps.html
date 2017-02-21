@@ -1,0 +1,21 @@
+<div class="content-home">
+
+  <div class="home-box maps">
+    <h1>Public Maps</h1>
+
+    <div class="map-titles-row">
+      <div class="name">Name</div>
+      <div class="modified">Modified</div>
+      <div class="edit">Author</div>
+    </div>
+
+    <div class="map-row" ng-repeat="m in maps">
+      <div class="name pointer" ng-click="aMapa(m.id)">{{m.name}}</div>
+      <div class="modified">{{m.modified}}</div>
+      <div class="modified">{{m.author}}</div>
+    </div>
+
+
+    </div>
+
+</div>

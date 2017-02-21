@@ -1,0 +1,39 @@
+<div class="media-card"
+     ng-class="{uno: card.rating <= 3, cinco: card.rating > 3 && card.rating < 7, diez: card.rating >= 7 }">
+  <div class="profile-img">
+    <img class="img-profile" ng-src="{{card.img}}">
+    <div class="rating-value">
+      {{card.rating}}
+    </div>
+  </div>
+  <div class="data-list">
+    <div class="name"><p>{{card.name}}</p></div>
+    <div><p>{{card.medias | joinArray}}</p></div>
+    <div><p>{{card.positions | joinArray}}</p></div>
+    <div><p>{{card.genres | joinArray}}</p></div>
+    <div><p>{{card.communities | joinArray}}</p></div>
+    <div><p>{{card.functions | joinArray}}</p></div>
+    <div><p>{{card.territories | joinArray}}</p></div>
+    <div><p>{{card.email || 'N/A'}}</p></div>
+  </div>
+  <div class="social row">
+    <div class="col-md-4"><i class="fa fa-instagram"></i>{{card.instagram || 'N/A'}}</div>
+    <div class="col-md-4"><i class="fa fa-facebook"></i>{{card.facebook || 'N/A'}}</div>
+    <div class="col-md-4"><i class="fa fa-twitter"></i>{{card.twitter || 'N/A'}}</div>
+  </div>
+  <div class="data-personal">
+    <div>{{card.personal_interests | joinArray}}</div>
+  </div>
+  <div class="tags-box">
+    <h1>Story Angles</h1>
+    <div class="tags row">
+      <div class="col-md-4" ng-repeat="s in card.storylines">
+        <div class="tag">{{s}}</div>
+      </div>
+    </div>
+  </div>
+  <div class="notes-box">
+    <h1>Notes:</h1>
+        <div>{{card.notes}}</div>
+  </div>
+</div>

@@ -1,0 +1,5 @@
+** in a completed media map, there’s no option to edit, rename or return to ‘may maps’ as there was in the design.
+
+* admin
+
+** on admin menu no need to have link ‘admin menu’ only 'exit admin’

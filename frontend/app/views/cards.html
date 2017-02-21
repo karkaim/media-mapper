@@ -1,0 +1,19 @@
+<arrange-bar></arrange-bar>
+
+<div class="container-fluid content">
+  <div class="cols">
+    <div ng-repeat="card in cards | filterByTerr:terrFilter | filterByGenre:genreFilter | filterByStory:storylineFilter | filterByComm:communityFilter | filterByPos:positionFilter | filterByFn:functionFilter | customOrder:order| queryFilter:query">
+         <div class="block-card">
+        <div class="profile-edit pointer" ng-click="edit(card)">
+                <img src="../images/edit.svg">
+        </div>
+        <card mycard="card" ng-click="open(card)" class="col-mediacard hide-text lupa"></card>
+     </div>
+    </div>
+  </div>
+</div>
+
+
+<script type="text/ng-template" id="cardModal.html">
+<full-card mycard="card"></full-card>
+</script>

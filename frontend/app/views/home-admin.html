@@ -1,0 +1,23 @@
+<div class="content-home-admin">
+
+<admin-bar></admin-bar>
+
+    <div class="home-box-admin">
+
+      <div class="user-admin">
+        <div class="admin-photo"><img ng-src="{{user.img || '../images/user.svg'}}"></div>
+        <h3>Logged in as:</h3>
+        <h1>{{user.username}}</h1>
+      </div>
+      <div class="section">
+        <div class="title-section pointer"  ng-click="goAdminUser()">Users</div>
+        <div class="title-section pointer"  ng-click="editCatalogo('territories')">Territories</div>
+        <div class="title-section pointer"  ng-click="editCatalogo('categories')">Categories</div>
+        <div class="title-section pointer"  ng-click="editCatalogo('communities')">Communities</div>
+        <div class="title-section pointer"  ng-click="editCatalogo('functions')">Functions</div>
+        <div class="title-section pointer"  ng-click="editCatalogo('storyAngles')">Story Angles</div>
+      </div>
+
+    </div>
+
+</div>

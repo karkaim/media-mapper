@@ -1,0 +1,129 @@
+<h1 ng-if="!card.id" class="nike-negro">CREATE PROFILE</h1>
+<h1 ng-if="card.id" class="nike-negro">EDIT {{card.name}} PROFILE</h1>
+<div class="create">
+  <div class="column-text">
+    <div class="relationship">
+      <h1>Relationship Rating</h1>
+      <br>
+      <p><span class="color-block rating-valueuno"></span> Red = No relationship</p>
+      <p><span class="color-block rating-valuecinco"></span> Amber = Working relationship</p>
+      <p><span class="color-block rating-valuediez"></span> Green = Strong relationship</p>
+    </div>
+
+    <div class="story-lines">
+      <h1>Story Angles</h1>
+      <h2>(Drag and Drop)</h2>
+      <div class="tag col-md-4" ng-repeat='item in listx'
+           data-drag="true" ng-show="item"
+           ng-model="listx" jqyoui-draggable="{index: {{$index}}, animate: true}">
+        {{item}}
+      </div>
+    </div>
+
+  </div>
+
+  <form name="newCard">
+    <div class="media-card create-profile"
+         ng-class="{uno: card.rating <= 3, cinco: card.rating > 3 && card.rating < 7, diez: card.rating >= 7, 'no-rating': !card.rating }">
+      <div class="profile-img">
+        <img class="img-profile" ng-src="{{card.img || 'images/profile-img.png'}}">
+        <div class="rating-value">
+          <p ng-show="showRating" ng-click="showRating = !showRating">{{card.rating || 'R'}}</p>
+          <ul class="rating-list" ng-show="!showRating">
+            <li ng-click="setRating(i)" ng-repeat="i in ['R', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]">{{i}}</li>
+          </ul>
+        </div>
+        <div class="add-picture">
+          <span class="pointer" aria-hidden="true" ng-click="clickUploadFile()">add photo</span>
+          <input id="imgup" name="file" type="file" accept="image/*" file-model="myFile"
+                 style="position: relative; visibility: hidden; z-index: 2; opacity: 0;">
+        </div>
+      </div>
+
+      <div class="data-list">
+        <div class="name">
+          <input type="text" name="nombre" placeholder="Name" ng-model="card.name" only-words onclick="this.value=''" card-name required>
+        </div>
+        <div class="medias">
+          <input type="text" class="medias-box" ng-model="card.medias"  placeholder="Medias"></tagger>
+        </div>
+        <div class="territories">
+          <input type="texr" placeholder="Positions" ng-model="card.positions">
+        </div>
+        <div class="genres">
+          <select class="selectpicker" title='Categories' multiple data-selected-text-format="count>2"
+                  ng-options="g for g in genres" ng-model="card.genres">
+          </select>
+        </div>
+        <div class="territories">
+          <select class="selectpicker" title='Communities' multiple data-selected-text-format="count>2"
+                  ng-options="c for c in communities" ng-model="card.communities">
+          </select>
+        </div>
+        <div class="genres">
+          <select class="selectpicker" title='Functions' multiple data-selected-text-format="count>2"
+                  ng-options="f for f in functions" ng-model="card.functions">
+          </select>
+        </div>
+        <div class="territories">
+          <select class="selectpicker" title='Territories' multiple data-selected-text-format="count>4"
+                  ng-options="t for t in territories" ng-model="card.territories">
+          </select>
+        </div>
+        <div class="email">
+          <input type="text" name="email" placeholder="Email" ng-model="card['email']" onclick="this.value=''" card-email>
+        </div>
+      </div>
+
+
+      <div class="social row">
+        <div class="col-md-4"><i class="fa fa-instagram"></i><input type="text" name="instagram" placeholder="0" ng-model="card.instagram" onlynumbers></div>
+        <div class="col-md-4"><i class="fa fa-facebook"></i><input type="text" name="medias" placeholder="0" ng-model="card.facebook" onlynumbers></div>
+        <div class="col-md-4"><i class="fa fa-twitter"></i><input type="text" name="medias" placeholder="0" ng-model="card.twitter" onlynumbers></div>
+      </div>
+
+      <div class="data-personal">
+        <div class="personal-interests">
+          <input type="text" name="personal-interests" placeholder="Personal Interests" ng-model="card.personal_interests">
+        </div>
+      </div>
+
+      <div class="tags-box">
+        <h1>Story Angles</h1>
+        <div class="tags row" data-drop="true" ng-model="card.storylines" jqyoui-droppable="{multiple:true}">
+          <div class="tag col-md-4"
+               ng-repeat="item in card.storylines track by $index"
+               data-drag="true" data-jqyoui-options="{revert: 'valid'}"
+               ng-model="card.storylines"
+               jqyoui-draggable="{index: {{$index}},animate:true}">
+            {{item}}
+          </div>
+        </div>
+      </div>
+
+      <div class="notes-box">
+        <h1>Notes:</h1>
+        <textarea rows="3" cols="20" placeholder="Enter your text here..." ng-model="card.notes">
+        </textarea>
+      </div>
+      <button class="submit" type="submit" ng-click="saveCard()" ng-show="newCard.$valid">Save Profile</button>
+    </div>
+  </form>
+  <div class="deleteprofile pointer" ng-if="card.id" ng-click="delete(card)">
+    <i class="fa fa-times-circle"></i> Delete Profile
+  </div>
+  <div class="viewallprofiles pointer" ng-click="toCards()">View all profiles</div>
+</div>
+
+<script type="text/ng-template" id="delete-card.html">
+ <div class="confirm-delete">
+  <div class="modal-body">
+    <p>Delete {{card.name}}?</p>
+    <p>this action cannot be undone</p>
+  </div>
+  <div class="modal-footer">
+    <button ng-click="delete()">Delete</button>
+    <button ng-click="cancel()">Cancel</button>
+  </div>
+  </div>
+</script>
