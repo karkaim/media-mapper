@@ -147,7 +147,11 @@ angular.module('mediamapApp')
   .filter('joinArray', function() {
     return function(a) {
       if (a) {
-        return a.join(', ');
+        if(Array.isArray(a)) {
+            return a.join(', ')
+        } else {
+            return a;
+        }
       } else {
         return '';
       }
