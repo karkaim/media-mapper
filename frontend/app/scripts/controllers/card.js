@@ -18,7 +18,7 @@ angular.module('mediamapApp')
             case "Mexico":
                 return "flag-mx";
             case "Southeast Asia":
-                return "flag-kr flag-my flag-id flag-ph";
+                return "flag-sae";
             case "Pacific":
                 return "flag-us";
             case "Brasil":
@@ -40,7 +40,7 @@ angular.module('mediamapApp')
             case "PHILLIPINES":
                 return "flag-ph";
             case "SOCO":
-                return "flag-ar flag-cl";
+                return "flag-soco";
             case "FRANCE":
                 return "flag-fr";
         }    
