@@ -2,7 +2,8 @@
 
 <div class="container-fluid content">
   <div class="cols">
-    <div ng-repeat="card in cards | filterByTerr:terrFilter | filterByGenre:genreFilter | filterByStory:storylineFilter | filterByComm:communityFilter | filterByPos:positionFilter | filterByFn:functionFilter | customOrder:order| queryFilter:query">
+    <!--div ng-repeat="card in cards | filterByTerr:terrFilter | filterByGenre:genreFilter | filterByStory:storylineFilter | filterByComm:communityFilter | filterByPos:positionFilter | filterByFn:functionFilter | customOrder:order| queryFilter:query"-->
+    <div ng-repeat="card in cards | filterByTerr:terrFilter | filterByGenre:genreFilter | filterByComm:communityFilter | filterByPos:positionFilter | filterByFn:functionFilter | customOrder:order| queryFilter:query">
          <div class="block-card">
         <div class="profile-edit pointer" ng-click="edit(card)">
                 <img src="../images/edit.svg">
