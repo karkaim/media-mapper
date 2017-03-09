@@ -5,6 +5,7 @@
     <div class="rating-value">
       {{card.rating}}
     </div>
+    <img ng-repeat="item in card.territories" src="blank.gif" class="flag {{getFlag(item)}}" alt="{{item}}" />
   </div>
   <div class="data-list">
     <div class="name"><p>{{card.name}}</p></div>

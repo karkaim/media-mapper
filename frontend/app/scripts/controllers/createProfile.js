@@ -128,7 +128,9 @@ angular.module('mediamapApp')
       });
 
     $scope.$watchGroup(['territories', 'genres', 'positions'], function(newValues, oldValues, scope) {
-      $('select').selectpicker('refresh');
+      setTimeout(function (){
+        $('select').selectpicker('refresh');
+      }, 500);
     });
 
     $scope.toCards = function() {
@@ -172,7 +174,8 @@ angular.module('mediamapApp')
                     duration: 5000,
                     classes: 'alerta-fixed greencard'
                    });
-            $scope.card = {medias: [], rating: ''};});
+            //$scope.card = {medias: [], rating: ''};
+            });
       }
     };
 

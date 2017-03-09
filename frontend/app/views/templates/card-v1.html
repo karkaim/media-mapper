@@ -4,6 +4,7 @@
     <div class="rating-value">
       {{card.rating}}
     </div>
+    <img ng-repeat="item in card.territories" src="blank.gif" class="flag {{getFlag(item)}}" alt="{{item}}" />
     <div class="add-picture">
       <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
     </div>

@@ -16,7 +16,9 @@
   <div class="cols">
     <div ng-repeat="item in cards | filterByTerr:terrFilter | filterByGenre:genreFilter | filterByStory:storylineFilter | filterByComm:communityFilter | filterByPos:positionFilter | filterByFn:functionFilter | customOrder:order| queryFilter:query">
       <div class="block-card">
-        <card ng-click="open(item)" mycard="item" class="col-mediacard hide-text lupa"></card>
+        <img src="blank.gif" class="flag flag-cl" alt="Chile" />
+        <card ng-click="open(item)" mycard="item" class="col-mediacard hide-text lupa">
+        </card>
       </div>
     </div>
   </div>
