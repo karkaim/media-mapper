@@ -119,7 +119,7 @@
 ;    (clojure.java.io/copy 
 ;        (format/as-stream (resize-to-height (file :tempfile) 400 (re-find #"[^/]+$" (:content-type file))))
 ;        (clojure.java.io/as-file (str "public/" img-name)))
-    {:img (str "/" img-name)}))
+    {:img (str "/imagescards/" img-name)}))
 
 (defn find-users [where]
   (map format-id (map #(dissoc % :password)
@@ -146,8 +146,8 @@
 
 (defn delete-user [m]
   (let [maps (mc/find-maps db/db :maps {:cards {:$elemMatch {:$eq (:id m)}}})]
-    (dorun (map #(change-cards % (remove (fn [id] (= (:id m) id)) (:cards %)))))
-    (and (mc/remove db/db :users {:_id (object-id (:id map))}) {:ok 1})))
+    (dorun (map #(change-cards % (remove (fn [id] (= (:id m) id)) (:cards %))) maps))
+    (and (mc/remove db/db :users {:_id (object-id (:id m))}) {:ok 1})))
 
 (defroutes api-routes
   (POST "/api/users" {params :params}
