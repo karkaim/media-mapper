@@ -717,7 +717,9 @@ body{
 }
 
 .hide-text .media-card .data-list div{height:30px !important; overflow:hidden;text-overflow: ellipsis; white-space:nowrap;}
-
+.hide-text .media-card .data-list div.cardTerritories{ height: 60px !important;}
+.hide-text .media-card .data-list div.cardTerritories p{display: block;clear: both;float: none;}
+.hide-text .media-card .data-list div.cardTerritories img{margin:0px 5px;}
 .profile-edit{
         width:20px;
         height:20px;
