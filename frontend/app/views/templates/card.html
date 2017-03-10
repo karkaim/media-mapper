@@ -13,7 +13,7 @@
     <div><p>{{card.genres | joinArray}}</p></div>
     <div>
         <img ng-repeat="item in card.territories" src="blank.gif" class="flag {{getFlag(item)}}" alt="{{item}}" />
-        <p>{{card.territories | joinArray}}</p>
+        <p class="inline-box">{{card.territories | joinArray}}</p>
     </div>
   </div>
 </div>

@@ -20,7 +20,7 @@ angular.module('mediamapApp')
             case "Southeast Asia":
                 return "flag-sae";
             case "Pacific":
-                return "flag-us";
+                return "flag-pac";
             case "Brasil":
                 return "flag-br";
             case "India":
