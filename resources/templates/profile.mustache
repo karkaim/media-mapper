@@ -1,0 +1,262 @@
+<html>
+    <head>
+    <style>
+        .flag {
+            display: inline-block;
+            width: 30px !important;
+            height: 20px !important;
+            background: url('http://localhost:3000/images/flags.png') no-repeat;
+            position: relative !important;
+            background-size: 120px 80px;
+        }
+
+        .flag.flag-cl {
+            background-position: -60px 0;
+        }
+
+        .flag.flag-ph {
+            background-position: 0 -40px;
+        }
+
+        .flag.flag-kr {
+            background-position: -30px -20px;
+        }
+
+        .flag.flag-mx {
+            background-position: -60px -20px;
+        }
+
+        .flag.flag-in {
+            background-position: -90px 0;
+        }
+
+        .flag.flag-soco {
+            background-position: -60px -40px;
+        }
+
+        .flag.flag-sae {
+            background-position: -90px -40px;
+        }
+
+        .flag.flag-br {
+            background-position: -30px 0;
+        }
+
+        .flag.flag-ar {
+            background-position: 0 0;
+        }
+
+        .flag.flag-th {
+            background-position: 0 -60px;
+        }
+
+        .flag.flag-id {
+            background-position: 0 -20px;
+        }
+
+        .flag.flag-pac {
+            background-position: -90px -20px;
+        }
+
+        .flag.flag-sg {
+            background-position: -30px -40px;
+        }
+        body {
+            margin: 100px;
+            font-family: Helvetica;
+        }
+        table {
+            float: left;
+            border-spacing: 0;
+            border-collapse: collapse;
+            margin: 0;
+            padding: 0;
+            border: 1px solid #aaa;
+        }
+        td {
+            margin: 0;
+            padding: 0;
+        }
+        #general {
+            background: #aaa;
+        }
+        .td-top {
+	        vertical-align: top;
+        }
+        #column1 td, #column2 td {
+            border: 1px solid #aaa;
+            background: white;
+        }
+        #column1 {
+            display: inline;
+            width: 400px;
+        }
+        #column1 td {
+            padding-left: 60px;
+        }
+        
+        .rating-value {
+            width: 25px;
+            height: 25px;
+            text-align: center;
+            border-radius: 50%;
+            float: left;
+            margin-top: 10px;
+            margin-left: 10px;
+            position: absolute;
+            font-size: 13px;
+            font-weight: 700;
+            line-height: 2;
+            color: #fff;
+        }
+        
+        ._R, ._1, ._2, ._3 {
+            background-color: #f24010;
+        }
+        ._4, ._5, ._6 {
+            background-color: #f90 !important;
+        }
+        ._7, ._8, ._9, ._10 {
+            background-color: #3ab54a !important;
+        }
+        
+        #column2 {
+            display: inline;
+            margin-left: -1px;
+            width: 500px;
+        }
+        #column2 td {
+            padding-left: 40px;
+            width: 500px;
+        }   
+        #foto {
+            height: 400px;
+            padding: 0px !important;
+            margin: 0;
+        }
+        #facebook {
+            height: 120px;
+        }
+        #instagram, #twitter {
+            height: 110px;
+        }
+        #name {
+            height: 130px;
+            font-size: 50px;
+            font-weight: bold;
+            color: #666;
+        }
+        #data {         
+            height: 610px;
+            vertical-align: top;
+            padding-top: 30px;
+        }        
+        #data p:empty {
+            display: none;
+        }
+        #data p > span::after {
+            content: ","
+        }
+        #data  p > span:last-of-type::after {
+            content: ''
+        }
+        .vertical-middle {
+            vertical-align: middle;
+        }
+        .territories {
+            display: inline-table;
+        }
+        #angle-container div {
+            background-color: #f2f2f2;
+            border-radius: 7px;
+            display: inline-block;
+            padding: 4px 15px;
+            margin: 4px;
+        }
+        .social-data {
+            color: #666;
+            font-weight: bold;
+            line-height: 0.6;
+        }
+    </style>
+    <script>
+        getFlag = function (territory) {
+            switch(territory) {
+                case "Mexico":
+                    return "flag-mx";
+                case "Southeast Asia":
+                    return "flag-sae";
+                case "Pacific":
+                    return "flag-pac";
+                case "Brasil":
+                    return "flag-br";
+                case "India":
+                    return "flag-in";
+                case "Korea":
+                    return "flag-kr";
+                case "CHILE":
+                    return "flag-cl";
+                case "ARGENTINA":
+                    return "flag-ar";
+                case "THAILAND":
+                    return "flag-th";
+                case "INDONESIA":
+                    return "flag-id";
+                case "SINGAPORE":
+                    return "flag-sg";
+                case "PHILLIPINES":
+                    return "flag-ph";
+                case "SOCO":
+                    return "flag-soco";
+            }    
+        }
+    </script>
+    </head>
+    <body>
+        <table id="general" cellspacing="0">
+        <tr><td class="td-top">
+        <table id="column1" class="td-top">
+            <tr><td id="foto"><div class="rating-value _{{rating}}">{{rating}}</div><img  width="400" height="400" src="{{img}}"/></td></tr>
+            <tr><td id="instagram">
+                    <p><strong>Instagram</strong></p>
+                    <p class="social-data">{{#instagram}}{{.}}{{/instagram}}{{^instagram}}0{{/instagram}} followers</p>
+            </td></tr>
+            <tr><td id="facebook">
+                    <p><strong>Facebook</strong></p>
+                   <!-- <p class="social-data">{{likes}} likes</p> -->
+                    <p class="social-data">{{#facebook}}{{.}}{{/facebook}}{{^facebook}}0{{/facebook}} followers</p>
+            </td></tr>
+            <tr><td id="twitter">
+                    <p><strong>Twitter</strong></p>
+                    <p class="social-data">{{#twitter}}{{.}}{{/twitter}}{{^twitter}}0{{/twitter}} followers</p>
+            </td></tr>
+        </table>
+        </td><td>
+        <table id="column2">
+            <tr><td id="name">{{name}}</td></tr>
+            <tr><td id="data">
+                    <p>{{#medias}}<span>{{.}}</span>{{/medias}}</p>
+                    <p>{{#positions}}<span>{{.}}</span>{{/positions}}</p>
+                    <p>{{#categories}}<span>{{.}}</span>{{/categories}}</p>
+                    <p>{{#genres}}<span>{{.}}</span>{{/genres}}</p>
+                    <p>{{#functions}}<span>{{.}}</span>{{/functions}}</p>
+                    {{#territories}}
+                    <p class="territories"><img id="{{.}}" class="flag vertical-middle" src="http://localhost:3000/blank.gif" alt="{{.}}">&nbsp;{{.}}</p>
+                    <script>document.getElementById('{{.}}').classList.add(getFlag('{{.}}'));</script>
+                    {{/territories}}
+                    <p>{{email}}</p>
+                    <!-- <p>website</p> -->
+                    <p>Personal Interest: {{personal_interests}}</p>
+                    <p>Story angles:</p>
+                    <div id="angle-container">
+                            {{#storylines}}<div>{{.}}</div>{{/storylines}}
+                    </div>
+                    <br/>
+                    <p><strong>Notes:</strong><br/>{{notes}}
+                   <!--<br/> <strong>YouTube channel:</strong><br/>www.youtube.com/user/fitmydish-->
+                   </p>  
+            </td></tr>
+        </table>
+        </td></tr>
+    </body>
+</html>
