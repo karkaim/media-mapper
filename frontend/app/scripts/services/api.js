@@ -8,7 +8,7 @@
  * Service in the mediamapApp.
  */
 angular.module('mediamapApp')
-  .factory('Api', function ($http, $q, notify) {
+  .factory('Api', ["$http", "$q", "notify", "$window", function ($http, $q, notify, $window) {
     // AngularJS will instantiate a singleton by calling "new" on this function
     var host = '';
     return {
@@ -134,6 +134,17 @@ angular.module('mediamapApp')
             return err;
           });
       },
+      downloadPdf: function(param) {
+        $window.open(host + '/api/profile/download?id=' + param);
+      },
+      sendProfile: function(param) {
+        return $http.post(host + '/api/profile/send', param)
+          .then(function(res) {
+            return res;
+          }, function(err) {
+            return err;
+          });
+      },
       upsertUser: function(user){
         return $http.post(host + '/api/create-user', user)
           .then(function(res) {
@@ -161,4 +172,4 @@ angular.module('mediamapApp')
             });
       }
     };
-  });
+  }]);

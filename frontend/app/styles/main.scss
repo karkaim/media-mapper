@@ -617,8 +617,8 @@ body{
         height:320px;}
 
     .profile-img img{
-        height:100%;
-        width:auto;
+        height: 100%;
+        width: auto;
         position: absolute;
         left: 50%;
         transform: translate(-50%, 0);}
@@ -716,7 +716,55 @@ body{
 
 }
 
+div.pdf-to-share > button {
+    color: #666;
+    background: #fff;
+    font-weight: bold;
+    border-radius: 9px;
+    border: 2px solid #666;
+    padding: 4px 11px;
+    margin: 4px;
+}
+
+div.pdf-to-share > button:focus,
+div.pdf-to-share > button:hover {
+    color: #fff;
+    background: #666;
+}
+.error {
+    color: red;
+    display: block;
+}
+div.email-list {
+    padding: 30px 0;
+    border-top: solid 2px #666;
+}
+
+div.email-list > form > input {
+    border-radius: 7px 0px 0px 7px;
+    border: solid 2px #666;
+    background: #FFF;
+    color: #000;
+    height: 40px;
+    width: 240px;
+    margin-left: 6%;
+    padding-left: 15px;
+}
+
+div.email-list > form > button {
+    border-radius: 0px 7px 7px 0px;
+    border: solid 2px #666;
+    margin-left: -6px;
+    background: #FFF;
+    color: #000;
+    height: 40px;
+    font-weight: bold;
+}
+
 .hide-text .media-card .data-list div{height:30px !important; overflow:hidden;text-overflow: ellipsis; white-space:nowrap;}
+.hide-text .media-card .data-list div.cardTerritories{ height: 60px !important;}
+.hide-text .media-card .data-list div.cardTerritories p{display: block;clear: both;float: none;}
+.hide-text .media-card .data-list div.cardTerritories img{margin:0px 5px;}
 
 .profile-edit{
         width:20px;
@@ -878,7 +926,7 @@ button:focus,
 .btn:active{box-shadow:none;}
 
 
-.modal-content, .modal-dialog{width:320px;}
+.modal-content, .modal-dialog{width:340px;}
 
 
 .modal-content .media-card{margin:0 !important;}
@@ -1075,8 +1123,8 @@ textarea:focus:-moz-placeholder{
 
     #logo {
          fill:$color-grisoscuro !important;
-       }
-
+    }
+    
 	h1.nike{position:absolute !important; left: 60px; font-size: 15px !important;}
 
 	.logo{height: 10px; margin-top: 8px;}

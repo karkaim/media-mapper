@@ -138,7 +138,6 @@ angular.module('mediamapApp')
 
   .controller('ModalInstanceCtrl', function($scope, $modalInstance, card) {
     $scope.card = card;
-
     $scope.ok = function () {
       $modalInstance.dismiss('chau');
     };

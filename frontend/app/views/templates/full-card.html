@@ -39,4 +39,17 @@
     <h1>Notes:</h1>
         <div>{{card.notes}}</div>
   </div>
+  <div class="pdf-to-share">
+    <button ng-click="download()">DOWNLOAD PROFILE</button>
+    <button ng-click="share()">SHARE PROFILE</button>
+  </div>
+  <div ng-show="toggle" class="email-list">
+    <form name="shareForm">
+        <input type="text" ng-model="emailList" name="emailList" ng-pattern="/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z‌​]{2,20})$/" />
+        <button ng-click="shareForm.$valid || send()">SEND</button>
+       <span class="error" ng-show='shareForm.$dirty'>
+            Emails must be all in valid format and separated by coma with no spaces.
+        </span>
+     </form>
+  </div>
 </div>

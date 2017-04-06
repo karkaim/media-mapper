@@ -7,11 +7,11 @@
     </div>
   </div>
   <div class="data-list">
-    <div class="name"><p>{{card.name}}</p>></div>
+    <div class="name"><p>{{card.name}}</p></div>
     <div><p>{{card.medias | joinArray }}</p></div>
     <div><p>{{card.positions | joinArray}}</p></div>
     <div><p>{{card.genres | joinArray}}</p></div>
-    <div>
+    <div class="cardTerritories">
         <img ng-repeat="item in card.territories" src="blank.gif" class="flag {{getFlag(item)}}" alt="{{item}}" />
         <p class="inline-box">{{card.territories | joinArray}}</p>
     </div>

@@ -18,13 +18,13 @@ angular.module('mediamapApp')
         };
       });
 
-    Api.getCatalogo({tipo: 'storyline'})
-      .then(function(res) {
-        $scope.storylines = {
-          title: 'Preference',
-          opts: [{tipo: 'storyline', value: 'ALL'}].concat(orderByFilter(res,'value'))
-        };
-      });
+  //  Api.getCatalogo({tipo: 'storyline'})
+  //    .then(function(res) {
+  //      $scope.storylines = {
+  //        title: 'Preference',
+  //        opts: [{tipo: 'storyline', value: 'ALL'}].concat(orderByFilter(res,'value'))
+  //      };
+  //    });
       
     Api.getCatalogo({tipo: 'communities'})
       .then(function(res) {
