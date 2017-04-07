@@ -177,6 +177,9 @@ body{
 
 .inline-box {
     display: inline-block;
+    clear: both;
+    width: 100%;
+    margin-top: 5px;
 }
 .content-box{width:100%;
     height: 100%;
@@ -595,7 +598,7 @@ body{
         margin: 0 15px;}
 
 .media-card{
-        border: 2px solid $color-grisoscuro;
+        border: 1px solid #737373;
         background-color:#fff;
         position:relative;
         margin-top:30px;
@@ -607,7 +610,7 @@ body{
 
 .media-card {
     .profile-img{
-        background: url(../images/profile-img.png) no-repeat center center;
+        /*background: url(../images/profile-img.png) no-repeat center center;*/
         overflow:hidden;
         position:relative;
         -webkit-background-size: cover;
@@ -621,24 +624,27 @@ body{
         width: auto;
         position: absolute;
         left: 50%;
-        transform: translate(-50%, 0);}
+        transform: translate(-50%,0);
+        height: 250px;
+        display: block;
+        border-radius: 200px;
+        top: 30px;}
 
 
     .rating-value{
-        width:25px;
-        height:25px;
-        text-align:center;
-        -webkit-border-radius:50%;
-        -moz-border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        text-align: center;
         border-radius: 50%;
-        float:left;
-        margin-top:10px;
-        margin-left:10px;
+        float: left;
+        margin-top: 10px;
+        margin-left: 10px;
         position: absolute;
-        font-size:13px;
-        font-weight:bold;
-        line-height:2;
-        color:#fff;}
+        font-size: 1.5em;
+        font-weight: 700;
+        line-height: 2;
+        color: #fff;
+        font-family: 'TradeGothicforNike365-BdCn';}
 
 
     .add-picture{
@@ -659,17 +665,28 @@ body{
     .add-picture:hover{background-color:$color-gris;color:#fff;}
 
     .data-list div{
-        text-align:center;
-        color:$color-grisoscuro;
-        padding-top:5px;
-        padding-bottom:5px;
+        text-align: left;
+        color: #373737;
         padding: 0 10px;
-        line-height: 2;}
+        line-height: 1;}
 
-    .data-list div:nth-child(even){background-color:$color-grismasclaro;}
-    .data-list .name{color:#fff; font-weight:bold; font-size:16px; line-height:1.7;}
+    /*.data-list div:nth-child(even){background-color:$color-grismasclaro;}*/
+    .data-list .name{
+        color: #737373;
+        font-weight: 700;
+        font-size: 2.2em;
+        line-height: 1;
+        font-family: 'TradeGothicforNike365-BdCn';
+        text-align: left;
+        letter-spacing: -0.03em;
+        margin-top: 10px;}
 
-    .social{min-height:30px; text-align:center; color:$color-grisoscuro; line-height:3; border-bottom: 2px solid $color-grismasclaro;font-size: 12px;}
+    .social{
+        min-height: 30px;
+        text-align: left;
+        color: #373737;
+        line-height: 3;
+        border-bottom: 2px solid #f2f2f2;}
     .social div{border-right: 2px solid $color-grismasclaro;}
     .social div:last-child{border-right: 2px solid $color-grismasclaro;}
 
@@ -683,10 +700,11 @@ body{
         -moz-border-radius: 50%;
         border-radius: 50%;
         margin-right:5px;
-        line-height:1.5;}
+        line-height:1.5;
+        text-align:center;}
 
     .data-personal div{min-height:30px; text-align:center; line-height:3; color:$color-grisoscuro;}
-    .data-personal div{background-color:$color-grismasclaro;}
+    .data-personal div{/*background-color:$color-grismasclaro;*/}
 
     .tags-box h1{font-size:14px; text-align:center; font-weight:normal; color:$color-grisoscuro;}
     .tags.row{padding: 0 20px; margin-bottom:30px;}
@@ -1021,17 +1039,17 @@ textarea:focus:-moz-placeholder{
 
 /* Colores media cards */
 
-.diez .rating-value, .diez .name, .rating-valuediez{background-color:$color-ratingdiez !important;}
-.nueve .rating-value, .nueve .name{background-color:$color-ratingnueve !important;}
-.ocho .rating-value, .ocho .name{background-color:$color-ratingocho !important;}
-.siete .rating-value, .siete .name{background-color:$color-ratingsiete !important;}
-.seis .rating-value, .seis .name{background-color:$color-ratingseis !important;}
-.cinco .rating-value, .cinco .name, .rating-valuecinco{background-color:$color-ratingcinco !important;}
-.cuatro .rating-value, .cuatro .name{background-color:$color-ratingcuatro !important;}
-.tres .rating-value, .tres .name{background-color:$color-ratingtres !important;}
-.dos .rating-value, .dos .name{background-color:$color-ratingdos !important;}
-.uno .rating-value, .uno .name, .rating-valueuno{background-color:$color-ratinguno !important;}
-.no-rating .rating-value, .no-rating .name{background-color:$color-grisoscuro !important;}
+.diez .rating-value, .diez .nameColor, .rating-valuediez{background-color:$color-ratingdiez !important;}
+.nueve .rating-value, .nueve .nameColor{background-color:$color-ratingnueve !important;}
+.ocho .rating-value, .ocho .nameColor{background-color:$color-ratingocho !important;}
+.siete .rating-value, .siete .nameColor{background-color:$color-ratingsiete !important;}
+.seis .rating-value, .seis .nameColor{background-color:$color-ratingseis !important;}
+.cinco .rating-value, .cinco .nameColor, .rating-valuecinco{background-color:$color-ratingcinco !important;}
+.cuatro .rating-value, .cuatro .nameColor{background-color:$color-ratingcuatro !important;}
+.tres .rating-value, .tres .nameColor{background-color:$color-ratingtres !important;}
+.dos .rating-value, .dos .nameColor{background-color:$color-ratingdos !important;}
+.uno .rating-value, .uno .nameColor, .rating-valueuno{background-color:$color-ratinguno !important;}
+.no-rating .rating-value, .no-rating .nameColor{background-color:$color-grisoscuro !important;}
 
 
 
