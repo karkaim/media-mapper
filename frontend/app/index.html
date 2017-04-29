@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="bower_components/ng-sortable/dist/ng-sortable.css" />
     <link rel="stylesheet" href="bower_components/angular-notify/dist/angular-notify.css" />
     <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="bower_components/ng-scrollbar/dist/ng-scrollbar.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -20,9 +21,10 @@
     <link rel="stylesheet" href="styles/font-awesome.css">
     <link rel="stylesheet" href="styles/flags.css">
     <!-- endbuild -->
-    
+
   </head>
   <body ng-app="mediamapApp">
+    <div id="fb-root"></div>
     <!--[if lte IE 8]>
     <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -102,6 +104,7 @@
     <script src="bower_components/angular-messages/angular-messages.js"></script>
     <script src="bower_components/zeroclipboard/dist/ZeroClipboard.js"></script>
     <script src="bower_components/ng-clip/src/ngClip.js"></script>
+    <script src="bower_components/ng-scrollbar/dist/ng-scrollbar.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
@@ -109,6 +112,9 @@
     <script src="scripts/controllers/main.js"></script>
     <script src="scripts/controllers/card.js"></script>
     <script src="scripts/services/api.js"></script>
+    <script src="scripts/services/instagram.js"></script>
+    <script src="scripts/services/facebook.js"></script>
+    <script src="scripts/services/twitter.js"></script>
     <script src="scripts/controllers/createProfile.js"></script>
     <script src="scripts/directives/onlyWords.js"></script>
     <script src="scripts/directives/onlynumbers.js"></script>
@@ -116,6 +122,7 @@
     <script src="scripts/directives/cardname.js"></script>
     <script src="scripts/directives/cardemail.js"></script>
     <script src="scripts/controllers/fullcard.js"></script>
+    <script src="scripts/controllers/socialclickcontroller.js"></script>
     <script src="scripts/controllers/navigation.js"></script>
     <script src="scripts/controllers/selectList.js"></script>
     <script src="scripts/controllers/arrangebar.js"></script>

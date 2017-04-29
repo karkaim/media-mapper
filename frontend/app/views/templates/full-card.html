@@ -1,3 +1,8 @@
+<div class="social-click" ng-controller="SocialClickController">
+  <button ng-click="openTab('instagram')"><i class="fa fa-instagram"></i></button>
+  <button ng-click="openTab('facebook')"><i class="fa fa-facebook"></i></button>
+  <button ng-click="openTab('twitter')"><i class="fa fa-twitter"></i></button>
+</div>
 <div class="media-card"
      ng-class="{uno: card.rating <= 3, cinco: card.rating > 3 && card.rating < 7, diez: card.rating >= 7 }">
   <div class="profile-img">
@@ -18,11 +23,13 @@
         <p class="inline-box">{{card.territories | joinArray}}</p>
     </div>
     <div><p>{{card.email || 'N/A'}}</p></div>
+    <div><p><a href="{{card.website}}">{{card.website || 'N/A'}}</a></p></div>
+
   </div>
   <div class="social row">
-    <div class="col-md-4"><i class="fa fa-instagram"></i>{{card.instagram || 'N/A'}}</div>
-    <div class="col-md-4"><i class="fa fa-facebook"></i>{{card.facebook || 'N/A'}}</div>
-    <div class="col-md-4"><i class="fa fa-twitter"></i>{{card.twitter || 'N/A'}}</div>
+    <div class="col-md-4"><a href="https://www.twitter.com/{{card.instagramlink}}"><i class="fa fa-instagram"></i>{{numberToK(card.instagram) || 'N/A'}}</a></div>
+    <div class="col-md-4"><a href="https://www.facebook.com/{{card.facebooklink}}"><i class="fa fa-facebook"></i>{{numberToK(card.facebook) || 'N/A'}}</a></div>
+    <div class="col-md-4"><a href="https://www.instagram.com/{{card.twitterlink}}"><i class="fa fa-twitter"></i>{{numberToK(card.twitter) || 'N/A'}}</a></div>
   </div>
   <div class="data-personal">
     <div>{{card.personal_interests | joinArray}}</div>
@@ -52,4 +59,220 @@
         </span>
      </form>
   </div>
+</div>
+<div ng-switch="moduleState">
+<div class="social-card" ng-switch-when="social">
+  <div class="toolbar">
+    <div class="pdf-to-share">
+      <button ng-click="download()">DOWNLOAD PROFILE</button>
+      <button ng-click="share()">SHARE PROFILE</button>
+    </div>
+    <div ng-show="toggle" class="email-list">
+      <form name="shareForm">
+          <input type="text" ng-model="emailList" name="emailList" ng-pattern="/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z‌​]{2,20})$/" />
+          <button ng-click="shareForm.$valid || send()">SEND</button>
+         <span class="error" ng-show='shareForm.$dirty'>
+              Emails must be all in valid format and separated by coma with no spaces.
+          </span>
+       </form>
+    </div>
+  </div>
+  <div ng-switch="socialState">
+    <div class="instagram" ng-switch-when="instagram">
+        <img class="img-logo" src="" alt="Instagram" />
+        <section class="profile">
+          <div class="photo">
+            <img src="{{instagram.profile_pic_url}}"/>
+          </div>
+          <div class="info">
+            <div>
+              <a href="https://www.instagram.com/{{card.instagramlink}}">{{card.instagramlink}}</a>
+            </div>
+            <div>
+              <span><strong>{{numberToK(instagram.media.count)}}</strong> posts<strong>{{numberToK(instagram.followed_by.count)}}</strong> followers</span><span><strong>{{numberToK(instagram.follows.count)}}</strong> following</span>
+            </div>
+            <div>
+              {{instagram.biography}}
+            </div>
+          </div>
+        </section>
+        <section class="search" id="instagramsearch">
+          <div ng-switch="searchState">
+          <div ng-switch-when="search">
+            <img alt="Search"/>From:<input type="date" name="since"/>To:<input type="date" name="until"/>
+            <button ng-click="search()">Search</button>
+            <input type="text" name="tags"/>
+          </div>
+          <div ng-switch-when="results">
+              <div>
+                <div>
+                  MOST USED #
+                </div>
+                <div>
+                  From: {{search.since}}
+                </div>
+                <div>
+                  To: {{search.until}}
+                </div>
+                <div>
+                  {{search.tags}}
+                </div>
+                <div>
+                  {{search.summary}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="feed pre-scrollable">
+          <h5>
+            LIVE FEED
+          </h5>
+          <div class="feed-container">
+            <article ng-repeat="item in instagram.media.nodes">
+              <img src="{{item.thumbnail_src}}"/>
+              <span>{{numberToK(item.likes.count)}} likes</span>
+              <p><strong>{{instagram.username}}</strong>&nbsp;{{item.caption}}</p>
+            </article>
+          </div>
+        </section>
+    </div>
+    <div class="facebook" ng-switch-when="facebook">
+        <img class="img-logo" src="" alt="Facebook" />
+        <section class="profile">
+          <div class="photo">
+            <img src="{{facebook.picture.data.url}}" width="170px"/>
+          </div>
+          <div class="info">
+            <div class="face-flex">
+              <div>
+                <h3>
+                  {{facebook.name}}
+                </h3>
+                <p>
+                  <a href="https://www.facebook.com/{{card.facebooklink}}">@{{card.facebooklink}}</a>
+                </p>
+              </div>
+              <div>
+                <span>{{facebook.engagement.social_sentence}} And {{numberToK(card.facebook)}} people follow this.</span>
+              </div>
+            </div>
+
+            <div>
+               {{facebook.about}}
+            </div>
+          </div>
+        </section>
+        <section class="search" id="facebooksearch">
+          <div ng-switch="searchState">
+          <div ng-switch-when="search">
+            <img alt="Search"/>From:<input type="date" name="since"/>To:<input type="date" name="until"/>
+            <button onclick="search()">Search</button>
+          </div>
+          <div ng-switch-when="results">
+              <div>
+                <div>
+                  MOST USED #
+                </div>
+                <div>
+                  From: {{search.since}}
+                </div>
+                <div>
+                  To: {{search.until}}
+                </div>
+                <div>
+                  {{search.tags}}
+                </div>
+                <div>
+                  Sum
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="feed pre-scrollable">
+          <div class="feed-container">
+            <article ng-repeat="item in feed">
+              <img src="{{item.attachments.data[0].media.image.src}}" />
+              <span>{{item.likes.summary.total_count}} likes</span>
+              <p class="description">{{item.attachments.data[0].description}}</p>
+              <p>{{item.message}}</p>
+            </article>
+          </div>
+        </section>
+    </div>
+    <div class="twitter" ng-switch-when="twitter">
+        <img class="img-logo" src="" alt="Twitter" />
+        <section class="profile">
+          <div class="photo">
+            <img src="{{twitter.profile_image_url}}" width="150px"/>
+          </div>
+          <div class="info">
+            <div>
+                <h3>
+                  {{twitter.name}}
+                </h3>
+                <p>
+                  <a href="https://www.twitter.com/{{card.twitterlink}}">@{{card.twitterlink}}</a>
+                </p>
+            </div>
+            <div>
+               <table>
+                 <thead>
+                   <th>TWEETS</th>
+                   <th>FOLLOWING</th>
+                   <th>FOLLOWERS</th>
+                   <th>LIKES</th>
+                 </thead>
+                 <tbody>
+                   <tr>
+                     <td>{{numberToK(twitter.statuses_count)}}</td>
+                     <td>{{numberToK(twitter.friends_count)}}</td>
+                     <td>{{numberToK(twitter.followers_count)}}</td>
+                     <td>{{numberToK(twitter.favourites_count)}}</td>
+                   </tr>
+                 </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+        <section class="search" id="twittersearch">
+          <div ng-switch="searchState">
+          <div ng-switch-when="search">
+            <img alt="Search"/>From:<input type="date" name="since"/>To:<input type="date" name="until"/>
+            <button>Search</button>
+          </div>
+          <div ng-switch-when="results">
+              <div>
+                <div>
+                  MOST USED #
+                </div>
+                <div>
+                  From: {{search.since}}
+                </div>
+                <div>
+                  To: {{search.until}}
+                </div>
+                <div>
+                  {{search.tags}}
+                </div>
+                <div>
+                  Sum
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="feed pre-scrollable">
+          <div class="feed-container">
+            <article ng-repeat="item in feed">
+              <span>{{item.favorite_count}} favorited</span>
+              <p><strong>{{twitter.name}}</strong>&nbsp;{{item.text}}</p>
+              <img src="{{item.entities.media[0].media_url}}"/>
+            </article>
+          </div>
+        </section>
+    </div>
+  </div>
+</div>
 </div>
