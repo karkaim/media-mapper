@@ -37,6 +37,25 @@
         </svg>
         <h1 class="nike"><a href="/#/">EM Connect and Influence Mapping</a></h1>
 
+        <div class="nav-main-menu">
+            <ul>
+                <li>
+                    <h3>MEDIA MAPS</h3>
+                    <ul>
+                        <li><div class="title-section pointer ng-click-active" ng-click="goMyMaps()">My maps</div></li>
+                        <li><div class="title-section pointer" ng-click="goPublicMaps()">Public maps</div> </li>
+                        <li><div class="title-section pointer" ng-click="goCreateMap()">Create new map</div> </li>
+                    </ul>
+                </li>
+                <li>
+                    <h3>MEDIA PROFILES</h3>
+                    <ul>
+                        <li><div class="title-section pointer ng-click-active" ng-click="goCreateProfile()">Create new profile</div> </li>
+                        <li><div class="title-section pointer" ng-click="goCards()">Edit profiles</div></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
 
         <div class="name-user pointer">
           <h3>{{user.username}}</h3>
