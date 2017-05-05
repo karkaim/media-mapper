@@ -202,11 +202,11 @@ body{
 
 /* Admind Home */
 
-.admin-nav{width:100%; height:50px; background-color:$color-grisoscurotres; font-family:'TradeGothicforNike365-BdCn'; color:#fff; display: table; text-transform:uppercase; font-size:25px;}
+.admin-nav{width:100%; height:50px; background-color:transparent;border-bottom: 1px solid #000; font-family:'TradeGothicforNike365-BdCn'; color:#fff; display: table; text-transform:uppercase; font-size:25px;}
 
 .admin-nav .exit{height:50%; float: right; padding:0 40px;}
 
-.admin-nav a{color:#fff; text-decoration:none;}
+.admin-nav a{color:$color-grisoscurotres; text-decoration:none;}
 
 .admin-nav .back{height:50%; float: left; padding:0 40px;}
 
@@ -215,6 +215,7 @@ body{
 .home-box-admin{width:500px; position:absolute; left:50%; margin-left:-250px; margin-top:50px; color:$color-negro;}
 
 .home-box-admin{
+    .user-admin{color:$color-negro;}
     .user-admin h3{width:100%; text-align:center; font-size:16px; margin-bottom:0 !important;}
     .user-admin h2{width:100%; text-align:center; font-family:'TradeGothicforNike365-BdCn'; font-size:40px; text-transform:uppercase; margin-bottom:10px;}
     .user-admin h1{width:100%; text-align:center; font-family:'TradeGothicforNike365-BdCn'; font-size:28px; text-transform:uppercase; margin-bottom:30px;}
@@ -222,14 +223,14 @@ body{
         background-color:$color-casinegro;
      -webkit-border-radius: 50%;
      -moz-border-radius: 50%;
-    border-radius: 50%;}
+    border-radius: 50%;display:none;}
 
     .user-admin .admin-photo img{
         height:100%;
         width:auto;
         position: absolute;
         left: 50%;
-        transform: translate(-50%, 0);
+        transform: translate(-50%, 0)        
     }
 
     .user-admin{
@@ -249,18 +250,26 @@ body{
     .section .header-icon img{width:20%;display:block; margin:0 auto;}
 
     .section .title-section{
-        width:100%;
-        height:80px;
-        background-color:#fff;
-        text-align:center;
-        color:$color-casinegro;
-        font-family:'TradeGothicforNike365-BdCn';
-        line-height:2;
-        font-size:38px;
-        text-transform:uppercase;
-    	margin-bottom:5px;}
+        height: 60px;
+        background-color: #fff;
+        font-family: TradeGothicforNike365-BdCn;
+        line-height: 2;
+        font-size: 30px;
+        text-align: center;
+        text-transform: uppercase;
+        border: 1px solid #ccc;
 
-    .section .title-section input{width:100%; height:80px; border:none; text-align:center; color:$color-casinegro;}
+        width: 45%;
+        color: #333;
+        margin-bottom: 5px;
+        float: left;
+        margin: 15px auto;
+        display: inline-block;
+        }
+    .section .title-section:nth-child(even){float: right;}
+    .title-section.pointer:hover {background: $color-gris;color: $color:blanco;}
+
+    .section .title-section input{width:45%; height:80px; border:none; text-align:center; color:$color-casinegro;}
 
     .section .title-section ::-webkit-input-placeholder {color:$color-casinegro !important; text-align:center; text-transform:uppercase; }
     .section .title-section :-moz-placeholder { color:$color-casinegro !important; opacity: 1; text-align:center; text-transform:uppercase;}
@@ -353,15 +362,16 @@ body{
 .catalogo button.savecatalogo{background-color:#39B54A;}
 
 .col-user{
-        width:150px;
+        border: 1px solid #4c4c4c;
+        width:200px;
         float:left;
-        margin: 0 25px;}
+        margin: 10px 25px;}
 
 .col-user{
 
 	img{width:100%; height:auto;}
 
-	h1{font-family:'TradeGothicforNike365-BdCn'; width:100%; text-align:center; text-transform:uppercase; color:#fff;font-size:28px;}
+	h1{font-family:'TradeGothicforNike365-BdCn'; width:100%; text-align:center; text-transform:uppercase; color:$color-negro;font-size:28px;}
 
 	.edit, .delete{padding:2px; margin:0 auto; margin-bottom:10px; border: 1px solid #fff; text-align:center; text-transform:uppercase; font-size:10px;}
 
@@ -370,7 +380,7 @@ body{
     .admin-photo{width:150px; height:150px; display:block; float:right; overflow:hidden; position:relative;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
-    border-radius: 50%;}
+    border-radius: 50%;display:none;}
 
     .admin-photo img{
         height:100%;
@@ -402,7 +412,7 @@ body{
 
 .content-home{position:relative; width:100%; min-height:100%; background-color:transparent; overflow:auto;}
 
-.home-box{width:500px; position:absolute; left:50%; margin-left:-250px; margin-top:50px; color:#fff;}
+.home-box{width:500px; position:absolute; left:50%; margin-left:-250px; margin-top:50px; color:#000;}
 
 .home-box{
     .user h3{width:100%; text-align:center; font-size:16px; margin-bottom:0 !important;}
@@ -411,7 +421,7 @@ body{
         background-color:$color-casinegro;
     -webkit-border-radius: 50%;
      -moz-border-radius: 50%;
-    border-radius: 50%;}
+    border-radius: 50%;display:none;}
 
     .user .admin-photo img{
         height:100%;
@@ -615,7 +625,7 @@ body{
   width: 40px;
   height: 120px;
   float: right;
-  top: 40px;
+  top: -2px;
   right: -40px;
   position: absolute;
   padding: 0.3rem 0;
