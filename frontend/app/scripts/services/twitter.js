@@ -3,23 +3,29 @@
 angular.module('mediamapApp')
 .factory('Twitter', ['$http',
 	function($http) {
-		var base = "https://api.instagram.com/v1";
+		var base = "/api/twitter-user?username=";
 		return {
-			'get': function() {
-      var url = 'twitter.json';
+			'get': function(twitterlink) {
+      var url = base + twitterlink;
 				var config = {
 					'params': {
 			//			'client_id': clientId,
 					//	'count': count,
-						'callback': 'JSON_CALLBACK'
+					//	'callback': 'JSON_CALLBACK'
 					}
 				};
 				return $http.get(url);
 			},
-      'feed': function () {
-        var url = 'twitter-feed.json';
+      'feed': function (twitterlink) {
+        var url = '/api/twitter-timeline?username=' + twitterlink;
+        return $http.get(url);
+      },
+      'search': function (twitterlink, search) {
+        var url = '/api/twitter-search?username=' + twitterlink
+            + 'from=' + search.from + 'to=' + search.to + '&hashtags=' + search.hashtags;
         return $http.get(url);
       }
+
 		};
 	}
 ]);

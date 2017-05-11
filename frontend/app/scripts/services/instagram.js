@@ -13,22 +13,17 @@ angular.module('mediamapApp')
  //     return {};
  //   }
 		return {
-			'get': function() {
-			//	var request = '/users/zazilabraham?access_token=' + instagramToken;
-			//	var url = base + request;
-      //  var url = "https://www.instagram.com/zazilabraham/?__a=1";
-      var url = 'instagram.json';
-				var config = {
-					'params': {
-			//			'client_id': clientId,
-					//	'count': count,
-						'callback': 'JSON_CALLBACK'
-					}
-				};
+			'get': function(instagramlink) {
+          var url = '/api/instagram-user?username=' + instagramlink;
+
 				return $http.get(url);
-			},
-      'feed': function () {
-        var url = 'instagram.json';
+      },
+      'feed': function (instagramlink) {
+        var url = '/api/instagram-user?username=' + instagramlink;
+        return $http.get(url);
+      },
+      'search': function (instagramlink, search) {
+        var url = '/api/instagram-user?username=' + instagramlink;
         return $http.get(url);
       }
 		};

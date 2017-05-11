@@ -7,9 +7,9 @@ angular.module('mediamapApp')
 			'get': function (facebooklink) {
           var deferred = $q.defer();
           FB.api(
-            '/' + facebooklink + '/feed',
+            '/' + facebooklink,
             'GET',
-            {"fields":"attachments,message,likes.limit(1).summary(true)"},
+            {"fields":"about,engagement,fan_count,talking_about_count,insights.metric(page_fans_country){values},picture.type(large),name"},
             function(response) {
               if (!response || response.error) {
                     deferred.reject('Error occured');
@@ -21,10 +21,35 @@ angular.module('mediamapApp')
             return deferred.promise;
 			},
       // facebook hashtag search is not allowed anymore.
-      // curl -i -X GET \ "https://graph.facebook.com/v2.9/ZazilAbrahamFP/feed?access_token=EAACEdEose0cBAH9QXK3HHbsz2gIlJ3WxsfQOd61e1TdTqLuhbLYoLw5HajiGKrHm7yH7JPZCZBvis3uDTYZBZBEd4PFzPZAuHrru6UhfUwIWL2scv5YEtmm5qJyKM3rFrcb4pb9wXeO1jRD47PIL5nj39wmtGn0JPizfxyZB5v2pGJ8pI1un4zShMEh21TSh8ZD"
-      'feed': function () {
-        var url = 'facebook-feed.json';
-        return $http.get(url);
+      'feed': function (facebooklink) {
+        var deferred = $q.defer();
+         FB.api(
+            '/' + facebooklink + '/feed',
+            'GET',
+            {"fields":"attachments,message,likes.limit(1).summary(true)"},
+            function(response) {
+              if (!response || response.error) {
+                    deferred.reject('Error occured');
+                } else {
+                    deferred.resolve(response);
+              }
+            });
+        return deferred.promise;
+      },
+      'search': function (facebooklink, search) {
+        var deferred = $q.defer();
+         FB.api(
+            '/' + facebooklink + '/feed',
+            'GET',
+            {"fields":"attachments,message,likes.limit(1).summary(true)"},
+            function(response) {
+              if (!response || response.error) {
+                    deferred.reject('Error occured');
+                } else {
+                    deferred.resolve(response);
+              }
+            });
+        return deferred.promise;
       }
 		};
 	}

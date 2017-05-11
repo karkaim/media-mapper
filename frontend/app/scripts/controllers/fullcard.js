@@ -6,28 +6,31 @@ angular.module('mediamapApp')
     $scope.moduleState = 'details';
     $scope.emailList = '';
     $scope.toggle = false;
+    $scope.searchState =  'search';
+    $scope.search =  { since : "", until: "", tags: "", summary: "", caption:""};
 
     if (! img) {
       $scope.card.img = 'images/profile-img.png';
     }
 
     $scope.$on('socialClick', function(event, tab) {
+      $scope.searchState =  'search';
       $scope.moduleState = 'social';
       $scope.socialState = tab;
       switch(tab){
         case 'instagram':
-          instagram.feed().success(function (response) {
-            $scope.feed = response.user.media.nodes;
+          instagram.feed($scope.card.instagramlink).success(function (response) {
+            $scope.feed = response.body.user.media.nodes;
           });
           break;
         case 'facebook':
-          facebook.feed().then(function (response) {
+          facebook.feed($scope.card.facebooklink).then(function (response) {
             $scope.feed = response.data;
           });
           break;
         case 'twitter':
-          twitter.feed().success(function (response) {
-            $scope.feed = response;
+          twitter.feed($scope.card.twitterlink, {}).success(function (response) {
+            $scope.feed = response.body || {};
           });
           break;
       }
@@ -66,9 +69,9 @@ angular.module('mediamapApp')
         }
     }
 
-    instagram.get().success(function(response) {
-			$scope.instagram = response.user;
-      $scope.card.instagram = response.user.followed_by.count;
+    instagram.get($scope.card.instagramlink).success(function(response) {
+			$scope.instagram = response.body.user;
+      $scope.card.instagram = response.body.user.followed_by.count;
       Api.upsertCard($scope.card);
     });
 
@@ -80,9 +83,9 @@ angular.module('mediamapApp')
       Api.upsertCard($scope.card);
     });
 
-    twitter.get().success(function(response) {
-			$scope.twitter = response;
-      $scope.card.twitter = response.followers_count;
+    twitter.get($scope.card.twitterlink).success(function(response) {
+			$scope.twitter = response.body;
+      $scope.card.twitter = response.body.followers_count;
       Api.upsertCard($scope.card);
     });
 
@@ -108,5 +111,27 @@ angular.module('mediamapApp')
                    $scope.emailList = '';
             });
         $scope.toggle = !$scope.toggle;
+    }
+
+    $scope.searchClick = function () {
+       $scope.searchState = 'results';
+      switch($scope.socialState){
+        case 'instagram':
+          //instagram.search($scope.card.instagramlink, $scope.search).success(function (response) {
+          //  $scope.feed = response.body.user.media.nodes || {};
+          //});
+          break;
+        case 'facebook':
+          //facebook.search($scope.card.facebooklink, $scope.search).then(function (response) {
+          //  $scope.feed = response.data || {};
+          //});
+          break;
+        case 'twitter':
+          $scope.feed = {};
+          twitter.search($scope.card.twitterlink,  $scope.search).success(function (response) {
+            $scope.feed = response.body || {};
+          });
+          break;
+      }
     }
   }]);

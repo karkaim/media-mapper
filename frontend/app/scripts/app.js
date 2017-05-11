@@ -25,6 +25,7 @@ angular
     'cgNotify',
     'ngClipboard',
     'ngScrollbar',
+    '720kb.datepicker'
   ])
   .config(function ($routeProvider, ngClipProvider, $httpProvider, $windowProvider) {
     $httpProvider.defaults.withCredentials = true;
@@ -105,17 +106,27 @@ angular
         redirectTo: '/'
       });
 
-       $windowProvider.fbAsyncInit = function() {
+      // Login on FB
+      $windowProvider.fbAsyncInit = function () {
+        try {
           FB.init({
-            appId: '1951133895108704',
+            appId: '2004214159808780',
             channelUrl: 'views/channel.html',
             status: true,
             cookie: true,
             xfbml: true,
             version: 'v2.9'
           });
+          FB.login(function(response) {
+            if (response.authResponse) {
+              //user just authorized your app
+            }
+          }, {scope: 'email,public_profile', return_scopes: true});
+        } catch (e) {
+          setTimeout($windowProvider.fbAsyncInit,1000);
+        }
       };
-
+      $windowProvider.fbAsyncInit();
   (function (d) {
     var js,
     id = 'facebook-jssdk',
@@ -131,6 +142,7 @@ angular
     js.src = "//connect.facebook.net/en_US/all.js";
 
     ref.parentNode.insertBefore(js, ref);
+
   }(document));
   })
   .directive('card', function() {

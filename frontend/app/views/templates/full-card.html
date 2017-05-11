@@ -1,7 +1,7 @@
 <div class="social-click" ng-controller="SocialClickController">
-  <button ng-click="openTab('instagram')"><i class="fa fa-instagram"></i></button>
-  <button ng-click="openTab('facebook')"><i class="fa fa-facebook"></i></button>
-  <button ng-click="openTab('twitter')"><i class="fa fa-twitter"></i></button>
+  <button ng-if="card.instagramlink" ng-click="openTab('instagram')"><i class="fa fa-instagram"></i></button>
+  <button ng-if="card.facebooklink" ng-click="openTab('facebook')"><i class="fa fa-facebook"></i></button>
+  <button ng-if="card.twitterlink" ng-click="openTab('twitter')"><i class="fa fa-twitter"></i></button>
 </div>
 <div class="media-card"
      ng-class="{uno: card.rating <= 3, cinco: card.rating > 3 && card.rating < 7, diez: card.rating >= 7 }">
@@ -27,9 +27,9 @@
 
   </div>
   <div class="social row">
-    <div class="col-md-4"><a href="https://www.twitter.com/{{card.instagramlink}}"><i class="fa fa-instagram"></i>{{numberToK(card.instagram) || 'N/A'}}</a></div>
-    <div class="col-md-4"><a href="https://www.facebook.com/{{card.facebooklink}}"><i class="fa fa-facebook"></i>{{numberToK(card.facebook) || 'N/A'}}</a></div>
-    <div class="col-md-4"><a href="https://www.instagram.com/{{card.twitterlink}}"><i class="fa fa-twitter"></i>{{numberToK(card.twitter) || 'N/A'}}</a></div>
+    <div class="col-md-4"><a href="https://www.twitter.com/{{card.instagramlink}}" target="_blank"><i class="fa fa-instagram"></i>{{numberToK(card.instagram) || 'N/A'}}</a></div>
+    <div class="col-md-4"><a href="https://www.facebook.com/{{card.facebooklink}}" target="_blank"><i class="fa fa-facebook"></i>{{numberToK(card.facebook) || 'N/A'}}</a></div>
+    <div class="col-md-4"><a href="https://www.instagram.com/{{card.twitterlink}}" target="_blank"><i class="fa fa-twitter"></i>{{numberToK(card.twitter) || 'N/A'}}</a></div>
   </div>
   <div class="data-personal">
     <div>{{card.personal_interests | joinArray}}</div>
@@ -60,7 +60,7 @@
      </form>
   </div>
 </div>
-<div ng-switch="moduleState">
+<div ng-switch="moduleState" class="module-state">
 <div class="social-card" ng-switch-when="social">
   <div class="toolbar">
     <div class="pdf-to-share">
@@ -77,7 +77,7 @@
        </form>
     </div>
   </div>
-  <div ng-switch="socialState">
+  <div ng-switch="socialState" class="social-state">
     <div class="instagram" ng-switch-when="instagram">
         <img class="img-logo" src="" alt="Instagram" />
         <section class="profile">
@@ -86,41 +86,55 @@
           </div>
           <div class="info">
             <div>
-              <a href="https://www.instagram.com/{{card.instagramlink}}">{{card.instagramlink}}</a>
+              <a href="https://www.instagram.com/{{card.instagramlink}}" target="_blank">{{card.instagramlink}}</a>
             </div>
             <div>
-              <span><strong>{{numberToK(instagram.media.count)}}</strong> posts<strong>{{numberToK(instagram.followed_by.count)}}</strong> followers</span><span><strong>{{numberToK(instagram.follows.count)}}</strong> following</span>
+              <span><strong>{{numberToK(instagram.media.count)}}</strong> posts</span><span><strong>{{numberToK(instagram.followed_by.count)}}</strong> followers</span><span><strong>{{numberToK(instagram.follows.count)}}</strong> following</span>
             </div>
             <div>
               {{instagram.biography}}
             </div>
           </div>
         </section>
-        <section class="search" id="instagramsearch">
+        <section class="s-search" id="instagramsearch">
           <div ng-switch="searchState">
-          <div ng-switch-when="search">
-            <img alt="Search"/>From:<input type="date" name="since"/>To:<input type="date" name="until"/>
-            <button ng-click="search()">Search</button>
-            <input type="text" name="tags"/>
+          <div ng-switch-when="search" class="s-container">
+            <img class="s-ico" alt="Search"/>
+            From:
+            <div class="d-container">
+              <i class ="fa fa-calendar s-calendar"></i>
+              <div class="datepicker" date-format="yyyy-MM-dd">
+                <input type="text" ng-model="search.from"/>
+              </div>
+            </div>
+            To:
+            <div class="d-container">
+              <i class ="fa fa-calendar s-calendar"></i>
+              <div class="datepicker" date-format="yyyy-MM-dd">
+                <input type="text" ng-model="search.to" />
+              </div>
+            </div>
+            <button ng-click="searchClick()">SEARCH</button>
+            <input type="text" ng-model="search.caption" class="s-tags" />
           </div>
-          <div ng-switch-when="results">
-              <div>
-                <div>
+          <div ng-switch-when="results" class="results">
+                <h4>
                   MOST USED #
+                </h4>
+                <div class="s-line2 col-sm-12">
+                  <div class="col-sm-3">
+                    From: <span>{{search.from}}</span>
+                  </div>
+                  <div class="col-sm-3">
+                    To: <span>{{search.to}}</span>
+                  </div>
+                  <div class="col-sm-6">
+                    {{search.caption}}
+                  </div>
                 </div>
-                <div>
-                  From: {{search.since}}
-                </div>
-                <div>
-                  To: {{search.until}}
-                </div>
-                <div>
-                  {{search.tags}}
-                </div>
-                <div>
+                <div class="col-sm-6 summary">
                   {{search.summary}}
                 </div>
-              </div>
             </div>
           </div>
         </section>
@@ -129,7 +143,7 @@
             LIVE FEED
           </h5>
           <div class="feed-container">
-            <article ng-repeat="item in instagram.media.nodes">
+            <article ng-repeat="item in instagram.media.nodes | filter:search.caption">
               <img src="{{item.thumbnail_src}}"/>
               <span>{{numberToK(item.likes.count)}} likes</span>
               <p><strong>{{instagram.username}}</strong>&nbsp;{{item.caption}}</p>
@@ -150,7 +164,7 @@
                   {{facebook.name}}
                 </h3>
                 <p>
-                  <a href="https://www.facebook.com/{{card.facebooklink}}">@{{card.facebooklink}}</a>
+                  <a href="https://www.facebook.com/{{card.facebooklink}}" target="_blank">@{{card.facebooklink}}</a>
                 </p>
               </div>
               <div>
@@ -163,36 +177,51 @@
             </div>
           </div>
         </section>
-        <section class="search" id="facebooksearch">
+        <section class="s-search" id="facebooksearch">
           <div ng-switch="searchState">
-          <div ng-switch-when="search">
-            <img alt="Search"/>From:<input type="date" name="since"/>To:<input type="date" name="until"/>
-            <button onclick="search()">Search</button>
-          </div>
-          <div ng-switch-when="results">
-              <div>
-                <div>
-                  MOST USED #
-                </div>
-                <div>
-                  From: {{search.since}}
-                </div>
-                <div>
-                  To: {{search.until}}
-                </div>
-                <div>
-                  {{search.tags}}
-                </div>
-                <div>
-                  Sum
-                </div>
+          <div ng-switch-when="search" class="s-container">
+           <img class="s-ico" alt="Search"/>
+           <!-- From:
+            <div class="d-container">
+              <i class ="fa fa-calendar s-calendar"></i>
+              <div class="datepicker" date-format="yyyy-MM-dd">
+                <input type="text" ng-model="from"/>
               </div>
+            </div>
+            To:
+            <div class="d-container">
+              <i class ="fa fa-calendar s-calendar"></i>
+              <div class="datepicker" date-format="yyyy-MM-dd">
+                <input type="text" ng-model="to" />
+              </div>
+            </div> -->
+            <input type="text" ng-model="search.message" class="s-tags"/>
+            <button ng-click="searchClick()">SEARCH</button>
+          </div>
+          <div ng-switch-when="results" class="results">
+                <h4>
+                  MOST USED #
+                </h4>
+                <div class="s-line2 col-sm-12">
+                  <div class="col-sm-3">
+                    From: <span>{{search.from}}</span>
+                  </div>
+                  <div class="col-sm-3">
+                    To: <span>{{search.to}}</span>
+                  </div>
+                  <div class="col-sm-6">
+                    {{search.message}}
+                  </div>
+                </div>
+                <div class="col-sm-6 summary">
+                  {{search.summary}}
+                </div>
             </div>
           </div>
         </section>
         <section class="feed pre-scrollable">
           <div class="feed-container">
-            <article ng-repeat="item in feed">
+            <article ng-repeat="item in feed | filter:search.message">
               <img src="{{item.attachments.data[0].media.image.src}}" />
               <span>{{item.likes.summary.total_count}} likes</span>
               <p class="description">{{item.attachments.data[0].description}}</p>
@@ -213,7 +242,7 @@
                   {{twitter.name}}
                 </h3>
                 <p>
-                  <a href="https://www.twitter.com/{{card.twitterlink}}">@{{card.twitterlink}}</a>
+                  <a href="https://www.twitter.com/{{card.twitterlink}}" target="_blank">@{{card.twitterlink}}</a>
                 </p>
             </div>
             <div>
@@ -236,37 +265,52 @@
             </div>
           </div>
         </section>
-        <section class="search" id="twittersearch">
+        <section class="s-search" id="twittersearch">
           <div ng-switch="searchState">
-          <div ng-switch-when="search">
-            <img alt="Search"/>From:<input type="date" name="since"/>To:<input type="date" name="until"/>
-            <button>Search</button>
-          </div>
-          <div ng-switch-when="results">
-              <div>
-                <div>
-                  MOST USED #
-                </div>
-                <div>
-                  From: {{search.since}}
-                </div>
-                <div>
-                  To: {{search.until}}
-                </div>
-                <div>
-                  {{search.tags}}
-                </div>
-                <div>
-                  Sum
-                </div>
+          <div ng-switch-when="search" class="s-container">
+            <img class="s-ico" alt="Search" />
+            From:
+            <div class="d-container">
+              <i class ="fa fa-calendar s-calendar"></i>
+              <div class="datepicker" date-format="yyyy-MM-dd">
+                <input type="text" ng-model="from"/>
               </div>
+            </div>
+            To:
+            <div class="d-container">
+              <i class ="fa fa-calendar s-calendar"></i>
+              <div class="datepicker" date-format="yyyy-MM-dd">
+                <input type="text" ng-model="to" />
+              </div>
+            </div>
+            <button ng-click="searchClick()">SEARCH</button>
+            <input type="text" ng-model="tags" class="s-tags"/>
+          </div>
+          <div ng-switch-when="results" class="results">
+                <h4>
+                  MOST USED #
+                </h4>
+                <div class="s-line2 col-sm-12">
+                  <div class="col-sm-3">
+                    From: <span>{{search.from}}</span>
+                  </div>
+                  <div class="col-sm-3">
+                    To: <span>{{search.to}}</span>
+                  </div>
+                  <div class="col-sm-6">
+                    {{search.tags}}
+                  </div>
+                </div>
+                <div class="col-sm-6 summary">
+                  {{search.summary}}
+                </div>
             </div>
           </div>
         </section>
         <section class="feed pre-scrollable">
           <div class="feed-container">
             <article ng-repeat="item in feed">
-              <span>{{item.favorite_count}} favorited</span>
+              <!-- <span>{{item.favorite_count}} favorited</span> -->
               <p><strong>{{twitter.name}}</strong>&nbsp;{{item.text}}</p>
               <img src="{{item.entities.media[0].media_url}}"/>
             </article>
