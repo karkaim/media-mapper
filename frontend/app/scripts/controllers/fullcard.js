@@ -148,9 +148,29 @@ angular.module('mediamapApp')
           //});
           break;
         case 'twitter':
-          $scope.feed = {};
           twitter.search($scope.card.twitterlink,  $scope.search).success(function (response) {
-            $scope.feed = response.body || {};
+            var filtered = [];
+            var summary = {likes: 0, comments: 0, count: 0};
+            var nodes = response.body;
+            var from = new Date($scope.search.from);
+            var to = new Date($scope.search.to);
+            var re = new RegExp( "(" + $scope.search.tags.split(" ").join("|") + ")");
+            for (var node in nodes) {
+                if (
+                    (($scope.search.from.length  < 2 ) || (new Date(nodes[node].date * 1000) >= from))
+                    && (($scope.search.to.length  < 2 ) || (new Date(nodes[node].date * 1000) <= to))
+                   ) {
+
+                  if (($scope.search.tags.length < 2) || (nodes[node].text.match(re))) {
+                    filtered.push(nodes[node]);
+                    summary.count++;
+                    summary.likes+= nodes[node].favorite_count;
+                    summary.comments+= nodes[node].retweet_count;
+                  }
+                }
+            }
+            $scope.search.summary = summary;
+            $scope.feed = filtered;
           });
           break;
       }

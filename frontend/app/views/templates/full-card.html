@@ -115,7 +115,7 @@
               </div>
             </div>
             <button ng-click="searchClick()">SEARCH</button>
-            <input type="text" ng-model="search.tags" class="s-tags" />
+            <input type="text" ng-model="search.tags" class="s-tags" placeholder="#search"/>
           </div>
           <div ng-switch-when="results" class="results">
                 <h4>
@@ -132,8 +132,13 @@
                     {{search.tags}}
                   </div>
                 </div>
-                <div class="col-sm-6 summary">
-                  Posts: {{numberToK(search.summary.count)}} Likes: {{numberToK(search.summary.likes)}} Comments: {{numberToK(search.summary.comments)}}
+                <div class="s-line3 ">
+                  <div class="col-sm-6">
+
+                  </div>
+                  <div class="col-sm-6 summary">
+                     Posts: {{numberToK(search.summary.count)}} Likes: {{numberToK(search.summary.likes)}} Comments: {{numberToK(search.summary.comments)}}
+                  </div>
                 </div>
             </div>
           </div>
@@ -143,7 +148,7 @@
             LIVE FEED
           </h5>
           <div class="feed-container">
-            <article ng-repeat="item in instagram.media.nodes">
+            <article ng-repeat="item in feed">
               <img src="{{item.thumbnail_src}}"/>
               <span>{{numberToK(item.likes.count)}} likes</span>
               <p><strong>{{instagram.username}}</strong>&nbsp;{{item.caption}}</p>
@@ -180,7 +185,7 @@
         <section class="s-search" id="facebooksearch">
           <div ng-switch="searchState">
           <div ng-switch-when="search" class="s-container">
-           <img class="s-ico" alt="Search"/>
+           <img class="s-ico" src="/images/search_icon.png" alt="Search"/>
            <!-- From:
             <div class="d-container">
               <i class ="fa fa-calendar s-calendar"></i>
@@ -195,7 +200,7 @@
                 <input type="text" ng-model="to" />
               </div>
             </div> -->
-            <input type="text" ng-model="search.message" class="s-tags"/>
+            <input type="text" ng-model="search.message" class="s-tags" placeholder="#search"/>
             <button ng-click="searchClick()">SEARCH</button>
           </div>
           <div ng-switch-when="results" class="results">
@@ -213,8 +218,13 @@
                     {{search.message}}
                   </div>
                 </div>
-                <div class="col-sm-6 summary">
-                  Posts: {{numberToK(search.summary.count)}} Likes: {{numberToK(search.summary.likes)}} Comments: {{numberToK(search.summary.comments)}}
+                <div class="s-line3 col-sm-12">
+                  <div class="col-sm-6">
+
+                  </div>
+                  <div class="col-sm-6 summary">
+                     Posts: {{numberToK(search.summary.count)}} Likes: {{numberToK(search.summary.likes)}} Comments: {{numberToK(search.summary.comments)}}
+                  </div>
                 </div>
             </div>
           </div>
@@ -268,7 +278,7 @@
         <section class="s-search" id="twittersearch">
           <div ng-switch="searchState">
           <div ng-switch-when="search" class="s-container">
-            <img class="s-ico" alt="Search" />
+            <img class="s-ico" src="/images/search_icon.png" alt="Search"/>
             From:
             <div class="d-container">
               <i class ="fa fa-calendar s-calendar"></i>
@@ -284,7 +294,7 @@
               </div>
             </div>
             <button ng-click="searchClick()">SEARCH</button>
-            <input type="text" ng-model="tags" class="s-tags"/>
+            <input type="text" ng-model="search.tags" class="s-tags" placeholder="#search"/>
           </div>
           <div ng-switch-when="results" class="results">
                 <h4>
@@ -301,8 +311,13 @@
                     {{search.tags}}
                   </div>
                 </div>
-                <div class="col-sm-6 summary">
-                  Posts: {{numberToK(search.summary.count)}} Likes: {{numberToK(search.summary.likes)}} Comments: {{numberToK(search.summary.comments)}}
+                <div class="s-line3 col-sm-12">
+                  <div class="col-sm-6">
+
+                  </div>
+                  <div class="col-sm-6 summary">
+                     Posts: {{numberToK(search.summary.count)}} Likes: {{numberToK(search.summary.likes)}} Comments: {{numberToK(search.summary.comments)}}
+                  </div>
                 </div>
             </div>
           </div>

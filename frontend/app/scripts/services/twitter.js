@@ -22,7 +22,7 @@ angular.module('mediamapApp')
       },
       'search': function (twitterlink, search) {
         var url = '/api/twitter-search?username=' + twitterlink
-            + 'from=' + search.from + 'to=' + search.to + '&hashtags=' + search.hashtags;
+            + 'from=' + search.from + 'to=' + search.to + '&hashtags=' + search.tags;
         return $http.get(url);
       }
 
