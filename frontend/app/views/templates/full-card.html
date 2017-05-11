@@ -5,6 +5,7 @@
 </div>
 <div class="media-card"
      ng-class="{uno: card.rating <= 3, cinco: card.rating > 3 && card.rating < 7, diez: card.rating >= 7 }">
+  <div class="half-circle" ng-class="{uno: card.rating <= 3, cinco: card.rating > 3 && card.rating < 7, diez: card.rating >= 7 }">
   <div class="profile-img">
     <img class="img-profile" ng-src="{{card.img}}">
     <div class="rating-value">
@@ -13,14 +14,14 @@
   </div>
   <div class="data-list">
     <div class="name"><p>{{card.name}}</p></div>
-    <div><p>{{card.medias | joinArray}}</p></div>
-    <div><p>{{card.positions | joinArray}}</p></div>
-    <div><p>{{card.genres | joinArray}}</p></div>
-    <div><p>{{card.communities | joinArray}}</p></div>
-    <div><p>{{card.functions | joinArray}}</p></div>
+    <div><p><b>Medias: </b>{{card.medias | joinArray}}</p></div>
+    <div><p><b>Positions:</b>{{card.positions | joinArray}}</p></div>
+    <div><p><b>Genres: </b>{{card.genres | joinArray}}</p></div>
+    <div><p><b>Communities: </b>{{card.communities | joinArray}}</p></div>
+    <div><p><b>Functions: </b>{{card.functions | joinArray}}</p></div>
     <div>
         <img ng-repeat="item in card.territories" src="blank.gif" class="flag {{getFlag(item)}}" alt="{{item}}" />
-        <p class="inline-box">{{card.territories | joinArray}}</p>
+        <p class="inline-box"><b>Territories: </b><br>{{card.territories | joinArray}}</p>
     </div>
     <div><p>{{card.email || 'N/A'}}</p></div>
     <div><p><a href="{{card.website}}">{{card.website || 'N/A'}}</a></p></div>
@@ -32,6 +33,7 @@
     <div class="col-md-4"><a href="https://www.twitter.com/{{card.twitterlink}}" target="_blank"><i class="fa fa-twitter"></i>{{numberToK(card.twitter) || 'N/A'}}</a></div>
   </div>
   <div class="data-personal">
+    <b>Personal Interests</b><br>
     <div>{{card.personal_interests | joinArray}}</div>
   </div>
   <div class="tags-box">

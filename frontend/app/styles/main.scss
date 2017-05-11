@@ -49,7 +49,8 @@ h1.nike{
     color:#fff;
     font-size:29px;
     line-height:1.7;
-    float:left;}
+    float:left;
+    text-transform:uppercase;}
 
 h1.nike-negro{
     font-family:'TradeGothicforNike365-BdCn';
@@ -271,7 +272,7 @@ body{
     .section .title-section:nth-child(even){float: right;}
     .title-section.pointer:hover {background: $color-gris;color: $color-blanco;}
 
-    .section .title-section input{width:45%; height:80px; border:none; text-align:center; color:$color-casinegro;}
+    .section .title-section input{width:100%; height:50px; border:none; text-align:center; color:$color-casinegro;}
 
     .section .title-section ::-webkit-input-placeholder {color:$color-casinegro !important; text-align:center; text-transform:uppercase; }
     .section .title-section :-moz-placeholder { color:$color-casinegro !important; opacity: 1; text-align:center; text-transform:uppercase;}
@@ -571,7 +572,7 @@ body{
 
     .bootstrap-select{width:16% !important; float:left;}
 
-    .search {float:right; width:24%; box-sizing: border-box; line-height:3.5;}
+    .search {float:right; width:24%; max-width:130px; box-sizing: border-box; line-height:3.5;}
 
     input {background-color:transparent; border:none; border-bottom: 1px solid $color-grisoscuro; width:60%; height:40px; margin-left:10px; float:left;}
 
@@ -893,9 +894,9 @@ img.s-ico {height:4rem;width:80px;}
 
 .s-calendar {
     position: absolute;
-    margin-left: -110px;
+    margin-left: 0;
     z-index: 3;
-    margin-top: 7px;
+    margin: 4px;
 }
 
 .s-ico::after {
@@ -918,17 +919,18 @@ div.s-container > button {
 }
 
 .d-container input {
-    width: 120px;
+    width: 110px;
     border: none;
     text-align: right;
     vertical-align: bottom;
     margin-bottom: -5px;
-    padding-right: 7px;
+    padding-right: 10px;
 }
 
 .s-tags {
-  width: 170px;
-  border: none;
+  width: 180px;
+  border: 1px solid #ccc;
+  color: #666;
 }
 
 .results {
@@ -975,6 +977,22 @@ div.s-container > button {
         -webkit-box-sizing: border-box;}
 
 .media-card {
+
+    .half-circle {
+        background: $color-grisclaro ;
+        border-bottom-right-radius: 200px;
+        border-top-right-radius: 200px;
+        display: inline-block;
+        position: absolute;
+        height: 266px;
+        left: 158px;
+        top: 40px;
+        display: inline-block;
+        margin: 0 1em 1em 0;
+        transform: rotate(15deg);
+        width: 133px;
+        z-index: 2;
+    }
     .profile-img{
         /*background: url(../images/profile-img.png) no-repeat center center;*/
         overflow: visible;
