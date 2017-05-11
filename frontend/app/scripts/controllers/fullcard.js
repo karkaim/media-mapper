@@ -7,7 +7,7 @@ angular.module('mediamapApp')
     $scope.emailList = '';
     $scope.toggle = false;
     $scope.searchState =  'search';
-    $scope.search =  { since : "", until: "", tags: "", summary: "", caption:""};
+    $scope.search =  { from : "", to: "", tags: "", summary: "", caption:""};
 
     if (! img) {
       $scope.card.img = 'images/profile-img.png';
@@ -117,9 +117,30 @@ angular.module('mediamapApp')
        $scope.searchState = 'results';
       switch($scope.socialState){
         case 'instagram':
-          //instagram.search($scope.card.instagramlink, $scope.search).success(function (response) {
-          //  $scope.feed = response.body.user.media.nodes || {};
-          //});
+          instagram.search($scope.card.instagramlink, $scope.search).success(function (response) {
+            var filtered = [];
+            var summary = {likes: 0, comments: 0, count: 0};
+            var nodes = response.body.user.media.nodes;
+            var from = new Date($scope.search.from);
+            var to = new Date($scope.search.to);
+            var re = new RegExp( "(" + $scope.search.tags.split(" ").join("|") + ")");
+            for (var node in nodes) {
+                if (
+                    (($scope.search.from.length  < 2 ) || (new Date(nodes[node].date * 1000) >= from))
+                    && (($scope.search.to.length  < 2 ) || (new Date(nodes[node].date * 1000) <= to))
+                   ) {
+
+                  if (($scope.search.tags.length < 2) || (nodes[node].caption.match(re))) {
+                    filtered.push(nodes[node]);
+                    summary.count++;
+                    summary.likes+= nodes[node].likes.count;
+                    summary.comments+= nodes[node].comments.count;
+                  }
+                }
+            }
+            $scope.search.summary = summary;
+            $scope.feed = filtered;
+          });
           break;
         case 'facebook':
           //facebook.search($scope.card.facebooklink, $scope.search).then(function (response) {
