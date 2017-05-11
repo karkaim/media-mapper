@@ -27,15 +27,15 @@
 
   </div>
   <div class="social row">
-    <div class="col-md-4"><a href="https://www.twitter.com/{{card.instagramlink}}" target="_blank"><i class="fa fa-instagram"></i>{{numberToK(card.instagram) || 'N/A'}}</a></div>
+    <div class="col-md-4"><a href="https://www.instagram.com/{{card.instagramlink}}" target="_blank"><i class="fa fa-instagram"></i>{{numberToK(card.instagram) || 'N/A'}}</a></div>
     <div class="col-md-4"><a href="https://www.facebook.com/{{card.facebooklink}}" target="_blank"><i class="fa fa-facebook"></i>{{numberToK(card.facebook) || 'N/A'}}</a></div>
-    <div class="col-md-4"><a href="https://www.instagram.com/{{card.twitterlink}}" target="_blank"><i class="fa fa-twitter"></i>{{numberToK(card.twitter) || 'N/A'}}</a></div>
+    <div class="col-md-4"><a href="https://www.twitter.com/{{card.twitterlink}}" target="_blank"><i class="fa fa-twitter"></i>{{numberToK(card.twitter) || 'N/A'}}</a></div>
   </div>
   <div class="data-personal">
     <div>{{card.personal_interests | joinArray}}</div>
   </div>
   <div class="tags-box">
-    <h1>Story Angles</h1>
+    <h1>Initiatives</h1>
     <div class="tags row">
       <div class="col-md-4" ng-repeat="s in card.storylines">
         <div class="tag">{{s}}</div>
@@ -79,7 +79,7 @@
   </div>
   <div ng-switch="socialState" class="social-state">
     <div class="instagram" ng-switch-when="instagram">
-        <img class="img-logo" src="" alt="Instagram" />
+        <img class="img-logo" src="/images/instagram_logo.png" alt="Instagram" />
         <section class="profile">
           <div class="photo">
             <img src="{{instagram.profile_pic_url}}"/>
@@ -99,7 +99,7 @@
         <section class="s-search" id="instagramsearch">
           <div ng-switch="searchState">
           <div ng-switch-when="search" class="s-container">
-            <img class="s-ico" alt="Search"/>
+            <img class="s-ico" src="/images/search_icon.png" alt="Search"/>
             From:
             <div class="d-container">
               <i class ="fa fa-calendar s-calendar"></i>
@@ -152,7 +152,7 @@
         </section>
     </div>
     <div class="facebook" ng-switch-when="facebook">
-        <img class="img-logo" src="" alt="Facebook" />
+        <img class="img-logo" src="/images/facebook.png" alt="Facebook" />
         <section class="profile">
           <div class="photo">
             <img src="{{facebook.picture.data.url}}" width="170px"/>
@@ -231,7 +231,7 @@
         </section>
     </div>
     <div class="twitter" ng-switch-when="twitter">
-        <img class="img-logo" src="" alt="Twitter" />
+        <img class="img-logo" src="/images/twitter_logo.png" alt="Twitter" />
         <section class="profile">
           <div class="photo">
             <img src="{{twitter.profile_image_url}}" width="150px"/>
