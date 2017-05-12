@@ -979,7 +979,6 @@ div.s-container > button {
 .media-card {
 
     .half-circle {
-        background: $color-grisclaro ;
         border-bottom-right-radius: 200px;
         border-top-right-radius: 200px;
         display: inline-block;
@@ -1458,17 +1457,17 @@ textarea:focus:-moz-placeholder{
 
 /* Colores media cards */
 
-.diez .rating-value, .diez .nameColor, .rating-valuediez{background-color:$color-ratingdiez !important;}
-.nueve .rating-value, .nueve .nameColor{background-color:$color-ratingnueve !important;}
-.ocho .rating-value, .ocho .nameColor{background-color:$color-ratingocho !important;}
-.siete .rating-value, .siete .nameColor{background-color:$color-ratingsiete !important;}
-.seis .rating-value, .seis .nameColor{background-color:$color-ratingseis !important;}
-.cinco .rating-value, .cinco .nameColor, .rating-valuecinco{background-color:$color-ratingcinco !important;}
-.cuatro .rating-value, .cuatro .nameColor{background-color:$color-ratingcuatro !important;}
-.tres .rating-value, .tres .nameColor{background-color:$color-ratingtres !important;}
-.dos .rating-value, .dos .nameColor{background-color:$color-ratingdos !important;}
-.uno .rating-value, .uno .nameColor, .rating-valueuno{background-color:$color-ratinguno !important;}
-.no-rating .rating-value, .no-rating .nameColor{background-color:$color-grisoscuro !important;}
+.diez .rating-value, .diez .nameColor, .rating-valuediez, .diez .half-circle{background-color:$color-ratingdiez !important;}
+.nueve .rating-value, .nueve .nameColor, .nueve .half-circle{background-color:$color-ratingnueve !important;}
+.ocho .rating-value, .ocho .nameColor, .ocho .half-circle{background-color:$color-ratingocho !important;}
+.siete .rating-value, .siete .nameColor, .siete .half-circle{background-color:$color-ratingsiete !important;}
+.seis .rating-value, .seis .nameColor, .seis .half-circle{background-color:$color-ratingseis !important;}
+.cinco .rating-value, .cinco .nameColor, .rating-valuecinco, .cinco .half-circle{background-color:$color-ratingcinco !important;}
+.cuatro .rating-value, .cuatro .nameColor, .cuatro .half-circle{background-color:$color-ratingcuatro !important;}
+.tres .rating-value, .tres .nameColor, .tres .half-circle{background-color:$color-ratingtres !important;}
+.dos .rating-value, .dos .nameColor, .dos .half-circle{background-color:$color-ratingdos !important;}
+.uno .rating-value, .uno .nameColor, .rating-valueuno, .uno .half-circle{background-color:$color-ratinguno !important;}
+.no-rating .rating-value, .no-rating .nameColor, .no-rating .half-circle{background-color:$color-grisoscuro !important;}
 
 
 

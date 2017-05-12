@@ -1,6 +1,6 @@
 <div class="media-card"
      ng-class="{uno: card.rating == '1', 'dos': card.rating == '2', 'tres': card.rating == '3', 'cuatro': card.rating == '4', 'cinco': card.rating == '5', 'seis': card.rating == '6', 'siete': card.rating == '7', 'ocho': card.rating == '8', 'nueve': card.rating == '9', 'diez': card.rating == '10' }">
-  <div class="half-circle" ng-class="{uno: card.rating <= 3, cinco: card.rating > 3 && card.rating < 7, diez: card.rating >= 7 }">
+  <div class="half-circle"></div>
   <div class="profile-img" ng-style="{'background-image':card.img}">
     <div class="rating-value">
       {{card.rating}}
