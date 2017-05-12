@@ -399,8 +399,8 @@ body{
         float:left;
         margin: 0 10px;
         margin-bottom:10px;
-    	color:#fff;
-    	border:1px solid #fff;
+    	color:$color-casinegro;
+    	border:1px solid $color-casinegro;
     	position:relative;}
 
 
@@ -992,7 +992,7 @@ div.s-container > button {
         width: 133px;
         z-index: 2;
     }
-    .half-circle .cicrlefull{left: 168px;}
+    .half-circle .circle-full{left: 168px;}
     .profile-img{
         /*background: url(../images/profile-img.png) no-repeat center center;*/
         overflow: visible;
