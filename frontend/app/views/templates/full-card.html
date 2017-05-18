@@ -2,9 +2,11 @@
   <button ng-if="card.instagramlink" ng-click="openTab('instagram')"><i class="fa fa-instagram"></i></button>
   <button ng-if="card.facebooklink" ng-click="openTab('facebook')"><i class="fa fa-facebook"></i></button>
   <button ng-if="card.twitterlink" ng-click="openTab('twitter')"><i class="fa fa-twitter"></i></button>
+  <button ng-click="openTab('journal')">J</button>
 </div>
 <div class="media-card"
      ng-class="{uno: card.rating <= 3, cinco: card.rating > 3 && card.rating < 7, diez: card.rating >= 7 }">
+  <div class="half-circle circle-full"></div>
   <div class="profile-img">
     <img class="img-profile" ng-src="{{card.img}}">
     <div class="rating-value">
@@ -13,14 +15,14 @@
   </div>
   <div class="data-list">
     <div class="name"><p>{{card.name}}</p></div>
-    <div><p>{{card.medias | joinArray}}</p></div>
-    <div><p>{{card.positions | joinArray}}</p></div>
-    <div><p>{{card.genres | joinArray}}</p></div>
-    <div><p>{{card.communities | joinArray}}</p></div>
-    <div><p>{{card.functions | joinArray}}</p></div>
+    <div><p><b>Medias: </b>{{card.medias | joinArray}}</p></div>
+    <div><p><b>Positions:</b>{{card.positions | joinArray}}</p></div>
+    <div><p><b>Genres: </b>{{card.genres | joinArray}}</p></div>
+    <div><p><b>Communities: </b>{{card.communities | joinArray}}</p></div>
+    <div><p><b>Functions: </b>{{card.functions | joinArray}}</p></div>
     <div>
         <img ng-repeat="item in card.territories" src="blank.gif" class="flag {{getFlag(item)}}" alt="{{item}}" />
-        <p class="inline-box">{{card.territories | joinArray}}</p>
+        <p class="inline-box"><b>Territories: </b><br>{{card.territories | joinArray}}</p>
     </div>
     <div><p>{{card.email || 'N/A'}}</p></div>
     <div><p><a href="{{card.website}}">{{card.website || 'N/A'}}</a></p></div>
@@ -32,6 +34,7 @@
     <div class="col-md-4"><a href="https://www.twitter.com/{{card.twitterlink}}" target="_blank"><i class="fa fa-twitter"></i>{{numberToK(card.twitter) || 'N/A'}}</a></div>
   </div>
   <div class="data-personal">
+    <b>Personal Interests</b><br/>
     <div>{{card.personal_interests | joinArray}}</div>
   </div>
   <div class="tags-box">
@@ -283,14 +286,14 @@
             <div class="d-container">
               <i class ="fa fa-calendar s-calendar"></i>
               <div class="datepicker" date-format="yyyy-MM-dd">
-                <input type="text" ng-model="from"/>
+                <input type="text" ng-model="search.from"/>
               </div>
             </div>
             To:
             <div class="d-container">
               <i class ="fa fa-calendar s-calendar"></i>
               <div class="datepicker" date-format="yyyy-MM-dd">
-                <input type="text" ng-model="to" />
+                <input type="text" ng-model="search.to" />
               </div>
             </div>
             <button ng-click="searchClick()">SEARCH</button>
@@ -316,7 +319,7 @@
 
                   </div>
                   <div class="col-sm-6 summary">
-                     Posts: {{numberToK(search.summary.count)}} Likes: {{numberToK(search.summary.likes)}} Comments: {{numberToK(search.summary.comments)}}
+                     Posts: {{numberToK(search.summary.count)}} Likes: {{numberToK(search.summary.likes)}} Retweets: {{numberToK(search.summary.comments)}}
                   </div>
                 </div>
             </div>
@@ -332,6 +335,76 @@
           </div>
         </section>
     </div>
+    <div class="journal" ng-switch-when="journal">
+      <div class="journal" ng-switch="journal">
+      <section class="list" ng-switch-when="list">
+        <article ng-repeat="item in journalList | orderBy:'date'" class="item">
+          <div class="accordeon">
+            <div>{{item.date}}</div>
+            <div>
+              <div class="circle"></div>
+              {{item.title}}
+            </div>
+            <div ng-if="!item.show" ng-click="item.show=true">Show Details</div>
+            <div ng-if="item.show" ng-click="item.show=false">Hide Details</div>
+            <div ng-click="deleteJournal(item)">X</div>
+          </div>
+          <div class="content" ng-show="item.show">
+            <div class="action-container">
+              <div class="category">
+                <div class="circle"></div>
+                {{item.category}}
+              </div>
+              <button class="action" ng-click="editJournal(item)">
+                UPDATE
+              </button>
+            </div>
+            <p>
+              {{item.description}}
+            </p>
+          </div>
+        </article>
+        <button ng-click="createJournal()">
+          <i class="fa fa-plus"></i>ADD NEW
+        </button>
+      </section>
+      <section class="j-form" ng-switch-when="form">
+        <form>
+          <div class="accordeon">
+            <div>
+              <div class="datepicker" date-format="MM/dd">
+                <input type="text" ng-model="journalForm.date" value="{{journalForm.date}}" placeholder="Date"/>
+              </div>
+            </div>
+            <!--  -->
+            <div class="category">
+                <div class="circle"></div>
+                <select class="category" ng-options="genre as item.value for item in genres" ng-model="journalForm.category"></select>
+                {{journalForm.category}}
+            </div>
+            <div><div class="circle"></div><input ng-model="journalForm.title" type="text" value="{{journalForm.title}}" placeholder="ADD NAME"/></div>
+            <div ng-click="switchView()">X</div>
+          </div>
+          <div class="content">
+            <textarea ng-model="journalForm.description" placeholder="Description">
+               {{journalForm.description}}
+            </textarea>
+            <button ng-if="!journalForm.id" class="action" ng-click="saveJournal()">
+              CREATE
+            </button>
+            <button ng-if="!!journalForm.id" class="action" ng-click="saveJournal()">
+              UPDATE
+            </button>
+          </div>
+        </form>
+      </section>
+      <section ng-switch-when="empty" class="empty">
+        <button ng-click="createJournal()">
+          <i class="fa fa-plus"></i>ADD NEW
+        </button>
+      </section>
+        </div>
+      </div>
   </div>
 </div>
 </div>

@@ -21,8 +21,9 @@ angular.module('mediamapApp')
         return $http.get(url);
       },
       'search': function (twitterlink, search) {
-        var url = '/api/twitter-search?username=' + twitterlink
-            + 'from=' + search.from + 'to=' + search.to + '&hashtags=' + search.tags;
+      //  var url = '/api/twitter-search?username=' + twitterlink
+      //      + 'from=' + search.from + 'to=' + search.to + '&hashtags=' + search.tags;
+        var url = '/api/twitter-timeline?username=' + twitterlink;
         return $http.get(url);
       }
 

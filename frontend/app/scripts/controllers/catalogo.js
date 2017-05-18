@@ -11,8 +11,8 @@ angular.module('mediamapApp')
       $scope.tipostr = 'categories';
       break;
     case 'storyAngles':
-      $scope.tipo = 'storylines';
-      $scope.tipostr = 'story angles';
+      $scope.tipo = 'storyline';
+      $scope.tipostr = 'initiatives';
       break;
     case 'functions':
       $scope.tipo = 'functions';

@@ -25,7 +25,7 @@ angular.module('mediamapApp')
   //        opts: [{tipo: 'storyline', value: 'ALL'}].concat(orderByFilter(res,'value'))
   //      };
   //    });
-      
+
     Api.getCatalogo({tipo: 'communities'})
       .then(function(res) {
         $scope.communities = {
@@ -44,7 +44,7 @@ angular.module('mediamapApp')
 
     $scope.orders = {
       title: 'Order by',
-      opts: [{value: 'None'}, {value: 'name'}, {value: 'rating'}, {value: 'territories'}, {value: 'story angles'}] //
+      opts: [{value: 'None'}, {value: 'name'}, {value: 'rating'}, {value: 'territories'}, {value: 'initiatives'}] //
     };
 
     $scope.noHome = $location.path() != '/home-admin';

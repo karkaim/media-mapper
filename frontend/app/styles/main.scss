@@ -49,7 +49,8 @@ h1.nike{
     color:#fff;
     font-size:29px;
     line-height:1.7;
-    float:left;}
+    float:left;
+    text-transform:uppercase;}
 
 h1.nike-negro{
     font-family:'TradeGothicforNike365-BdCn';
@@ -271,7 +272,7 @@ body{
     .section .title-section:nth-child(even){float: right;}
     .title-section.pointer:hover {background: $color-gris;color: $color-blanco;}
 
-    .section .title-section input{width:45%; height:80px; border:none; text-align:center; color:$color-casinegro;}
+    .section .title-section input{width:100%; height:50px; border:none; text-align:center; color:$color-casinegro;}
 
     .section .title-section ::-webkit-input-placeholder {color:$color-casinegro !important; text-align:center; text-transform:uppercase; }
     .section .title-section :-moz-placeholder { color:$color-casinegro !important; opacity: 1; text-align:center; text-transform:uppercase;}
@@ -398,8 +399,8 @@ body{
         float:left;
         margin: 0 10px;
         margin-bottom:10px;
-    	color:#fff;
-    	border:1px solid #fff;
+    	color: $color-casinegro;
+    	border:1px solid $color-casinegro;
     	position:relative;}
 
 
@@ -571,7 +572,7 @@ body{
 
     .bootstrap-select{width:16% !important; float:left;}
 
-    .search {float:right; width:24%; box-sizing: border-box; line-height:3.5;}
+    .search {float:right; width:24%; max-width:130px; box-sizing: border-box; line-height:3.5;}
 
     input {background-color:transparent; border:none; border-bottom: 1px solid $color-grisoscuro; width:60%; height:40px; margin-left:10px; float:left;}
 
@@ -636,11 +637,15 @@ body{
 .social-clicked {
     margin-top: 0px;
     float: left;
-    width: 210px;
+    width: 250px;
     height: 50px;
     display: inline-flex;
     position: absolute;
     margin-left: 340px;
+}
+
+.accordeon .datepicker input {
+      width: 50px;
 }
 
 .social-clicked button {
@@ -892,10 +897,11 @@ s-container::after {
 img.s-ico {height:4rem;width:80px;}
 
 .s-calendar {
-    position: absolute;
-    margin-left: -110px;
+    position: relative;
     z-index: 3;
-    margin-top: 7px;
+    margin: 4px;
+    float: left;
+    margin-bottom: -20px;
 }
 
 .s-ico::after {
@@ -918,17 +924,18 @@ div.s-container > button {
 }
 
 .d-container input {
-    width: 120px;
+    width: 110px;
     border: none;
     text-align: right;
     vertical-align: bottom;
     margin-bottom: -5px;
-    padding-right: 7px;
+    padding-right: 10px;
 }
 
 .s-tags {
-  width: 170px;
-  border: none;
+   width: 180px;
+   border: 1px solid #ccc;
+   color: #666;
 }
 
 .results {
@@ -963,6 +970,131 @@ div.s-container > button {
   color: #000;
 }
 
+.journal {
+  & .list,
+  & .j-form,
+  & .empty {
+    width: 600px;
+    margin: 0 50px;
+    text-align: center;
+
+      .fa-plus {
+        font-size: 26px;
+        font-weight: 100;
+        margin-right: 10px;
+        margin-bottom: -5px;
+        float: left;
+      }
+  }
+
+  & .list article, & .j-form, & .empty {
+    border: 2px solid #ccc;
+  }
+
+  & .list > button,
+  & .empty button {
+      border: none;
+      background: transparent;
+      height: 70px;
+      margin: 0 auto;
+      font-weight: bold;
+      font-size: 18px;
+  }
+
+  & .list {
+    & > div:nth-child(3) {
+      margin-right: -140px;
+    }
+
+    & article:nth-child(odd) .circle {
+      background: #EE0;
+    }
+
+    & article:nth-child(even) .circle {
+      background: #E00;
+    }
+  }
+  & .list article p {
+    border: 1px solid #ccc;
+  }
+  & .list article p,
+  & .j-form textarea {
+    width: 546px;
+    margin: 2rem;
+    padding: 2rem 2.5rem;
+  }
+  & .action-container {
+    display: inline-flex;
+    width: 546px;
+    justify-content: space-between;
+    align-items: end;
+    margin: 1rem 1rem 0 0;
+  }
+  & .journal .circle {
+    width: 16px;
+    height: 16px;
+    display: block;
+    position: absolute;
+    border: 2px solid #000;
+    border-radius: 30px;
+    margin-left: -20px;
+  }
+  & .journal .category .circle {
+    width: 12px;
+    height: 12px;
+    margin-left: -14px;
+  }
+  & .action {
+    background-color: #777;
+    color: #FFF;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+  }
+  & .accordeon {
+    display: inline-flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    padding: 9px;
+    border: 2px solid #ccc;
+    margin: -2px;
+    font-weight: bold;
+
+    & > div:first-child {
+      color: #777;
+    }
+
+    & > div:nth-child(3) {
+      margin-right: 130px;
+    }
+
+    & > div:last-child {
+      background-color: #ccc;
+      border-radius: 200px;
+      padding: 0.3rem 0.7rem;
+      font-size: 1rem;
+      font-weight: 100;
+    }
+    & .category {
+      margin-left: -5px;
+      padding-left: 10px;
+    }
+  }
+    & .category {
+      font-size: 1rem;
+    }
+}
+
+.j-form button.action {
+    align-self: right;
+    margin: 0 3rem 1.5rem;
+}
+
+.accordeon input {
+    border: none;
+}
+
 .media-card{
         border: 1px solid #737373;
         background-color:#fff;
@@ -975,6 +1107,21 @@ div.s-container > button {
         -webkit-box-sizing: border-box;}
 
 .media-card {
+    .half-circle {
+         border-bottom-right-radius: 200px;
+         border-top-right-radius: 200px;
+         display: inline-block;
+         position: absolute;
+         height: 266px;
+         left: 158px;
+         top: 40px;
+         display: inline-block;
+         margin: 0 1em 1em 0;
+         transform: rotate(15deg);
+         width: 133px;
+         z-index: 2;
+    }
+    .half-circle.circle-full{left: 168px;}
     .profile-img{
         /*background: url(../images/profile-img.png) no-repeat center center;*/
         overflow: visible;
@@ -1440,17 +1587,17 @@ textarea:focus:-moz-placeholder{
 
 /* Colores media cards */
 
-.diez .rating-value, .diez .nameColor, .rating-valuediez{background-color:$color-ratingdiez !important;}
-.nueve .rating-value, .nueve .nameColor{background-color:$color-ratingnueve !important;}
-.ocho .rating-value, .ocho .nameColor{background-color:$color-ratingocho !important;}
-.siete .rating-value, .siete .nameColor{background-color:$color-ratingsiete !important;}
-.seis .rating-value, .seis .nameColor{background-color:$color-ratingseis !important;}
-.cinco .rating-value, .cinco .nameColor, .rating-valuecinco{background-color:$color-ratingcinco !important;}
-.cuatro .rating-value, .cuatro .nameColor{background-color:$color-ratingcuatro !important;}
-.tres .rating-value, .tres .nameColor{background-color:$color-ratingtres !important;}
-.dos .rating-value, .dos .nameColor{background-color:$color-ratingdos !important;}
-.uno .rating-value, .uno .nameColor, .rating-valueuno{background-color:$color-ratinguno !important;}
-.no-rating .rating-value, .no-rating .nameColor{background-color:$color-grisoscuro !important;}
+.diez .rating-value, .diez .nameColor, .rating-valuediez, .diez .half-circle{background-color:$color-ratingdiez !important;}
+.nueve .rating-value, .nueve .nameColor, .nueve .half-circle{background-color:$color-ratingnueve !important;}
+.ocho .rating-value, .ocho .nameColor, .ocho .half-circle{background-color:$color-ratingocho !important;}
+.siete .rating-value, .siete .nameColor, .siete .half-circle{background-color:$color-ratingsiete !important;}
+.seis .rating-value, .seis .nameColor, .seis .half-circle{background-color:$color-ratingseis !important;}
+.cinco .rating-value, .cinco .nameColor, .rating-valuecinco, .cinco .half-circle{background-color:$color-ratingcinco !important;}
+.cuatro .rating-value, .cuatro .nameColor, .cuatro .half-circle{background-color:$color-ratingcuatro !important;}
+.tres .rating-value, .tres .nameColor, .tres .half-circle{background-color:$color-ratingtres !important;}
+.dos .rating-value, .dos .nameColor, .dos .half-circle{background-color:$color-ratingdos !important;}
+.uno .rating-value, .uno .nameColor, .rating-valueuno, .uno .half-circle{background-color:$color-ratinguno !important;}
+.no-rating .rating-value, .no-rating .nameColor, .no-rating .half-circle{background-color:$color-grisoscuro !important;}
 
 
 

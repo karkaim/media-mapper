@@ -1,11 +1,12 @@
 <div class="media-card"
      ng-class="{uno: card.rating <= 3, cinco: card.rating > 3 && card.rating < 7, diez: card.rating >= 7 }">
-  <div class="profile-img">
-    <img class="img-profile" ng-src="{{card.img}}">
-    <div class="rating-value">
-      {{card.rating}}
+  <div class="half-circle"></div>
+    <div class="profile-img">
+      <img class="img-profile" ng-src="{{card.img}}"/>
+      <div class="rating-value">
+        {{card.rating}}
+      </div>
     </div>
-  </div>
   <div class="data-list">
     <div class="name"><p>{{card.name}}</p></div>
     <div><p>{{card.medias | joinArray }}</p></div>
@@ -14,6 +15,6 @@
     <div class="cardTerritories">
         <img ng-repeat="item in card.territories" src="blank.gif" class="flag {{getFlag(item)}}" alt="{{item}}" />
         <p class="inline-box">{{card.territories | joinArray}}</p>
-    </div>
-  </div>
-</div>
+    </div> <!-- //Card Territories -->
+  </div> <!-- //Data List -->
+</div> <!-- //Media Card -->

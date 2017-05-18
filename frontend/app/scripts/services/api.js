@@ -126,6 +126,32 @@ angular.module('mediamapApp')
             console.log('error guardando:', err);
           });
       },
+      upsertJournalEvent: function(jEvent) {
+        return $http.post(host + '/api/upsert-journal-event', jEvent)
+          .then(function(res) {
+            return res;
+          }, function (err) {
+            console.log('Error saving journal', err);
+        });
+      },
+      getJournalEvents: function(cardId) {
+       return $http.get(host + '/api/get-journals?card=' + cardId)
+          .then(function(res) {
+            return res.data;
+          }, function (err) {
+            console.log('Error getting journal', err);
+        });
+      },
+      deleteJournalEvent: function(params) {
+        return $http.post(host + '/api/delete-journal', params)
+          .then(
+            function(res) {
+              return res.data;
+            },
+            function(err) {
+              return $q.reject(err);
+            });
+      },
       getUsers: function(param) {
         return $http.post(host + '/api/users', param)
           .then(function(res) {

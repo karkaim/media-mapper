@@ -3,7 +3,7 @@
 angular.module('mediamapApp')
   .filter('customOrder', function (orderByFilter) {
     return  function(cards, key) {
-      if (key === 'story angles') {
+      if (key === 'initiatives') {
         key = 'storylines';
       }
       var ords = orderByFilter(cards,key);

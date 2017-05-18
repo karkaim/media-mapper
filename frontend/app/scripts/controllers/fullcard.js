@@ -8,7 +8,25 @@ angular.module('mediamapApp')
     $scope.toggle = false;
     $scope.searchState =  'search';
     $scope.search =  { from : "", to: "", tags: "", summary: "", caption:""};
+    $scope.journalForm = {};
+    $scope.journalList = [];
+    $scope.genres = [];
 
+    Api.getCatalogo({tipo: 'genre'})
+      .then(function(res) {
+        $scope.genres = res;
+    });
+
+    Api.getJournalEvents($scope.card.id).then(function (res) {
+      $scope.journalList = res;
+      $scope.switchView();
+    });
+
+    $scope.switchView = function () {
+         $scope.journal = $scope.journalList.length > 0 ? 'list' : 'empty';
+    };
+
+    $scope.switchView();
     if (! img) {
       $scope.card.img = 'images/profile-img.png';
     }
@@ -35,6 +53,40 @@ angular.module('mediamapApp')
           break;
       }
     });
+
+    $scope.editJournal = function edit(item) {
+      $scope.journal = 'form';
+      $scope.journalForm = item;
+    }
+
+    $scope.createJournal = function create() {
+      $scope.journalForm = {};
+      $scope.journal = 'form';
+    //  $scope.saveJournal();
+    }
+
+    $scope.deleteJournal = function deleteJ(item) {
+       $scope.journalList = $scope.journalList.filter(function (element) {
+        return element.id != item.id;
+      });
+      Api.deleteJournalEvent(item);
+    }
+
+    $scope.saveJournal = function save() {
+      var index = $scope.journalList.findIndex(function (element, index, array) {
+        return element.id == $scope.journalForm.id;
+      });
+      if (index > -1) {
+        $scope.journalList[index] = $scope.journalForm;
+      } else {
+        $scope.journalList.push($scope.journalForm);
+      }
+      $scope.$apply();
+      console.log($scope.journalList);
+      $scope.journal = 'list';
+      $scope.journalForm.card = $scope.card.id;
+      Api.upsertJournalEvent($scope.journalForm);
+    }
 
     $scope.getFlag = function (territory) {
         switch(territory) {
