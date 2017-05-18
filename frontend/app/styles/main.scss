@@ -988,7 +988,8 @@ div.s-container > button {
   }
 
   & .list article, & .j-form, & .empty {
-    border: 2px solid #ccc;
+    border: 1px solid #ccc;
+    margin-bottom:10px;
   }
 
   & .list > button,
@@ -1003,7 +1004,10 @@ div.s-container > button {
 
   & .list {
     & > div:nth-child(3) {
-      margin-right: -140px;
+      margin-right: 10px;
+      font-weight: normal;
+      font-size: 0.9em;
+      cursor:pointer;
     }
 
     & article:nth-child(odd) .circle {
@@ -1057,7 +1061,7 @@ div.s-container > button {
     width: 100%;
     justify-content: space-between;
     padding: 9px;
-    border: 2px solid #ccc;
+    border: 1px solid #ccc;
     margin: -2px;
     font-weight: bold;
 
@@ -1074,7 +1078,7 @@ div.s-container > button {
       border-radius: 200px;
       padding: 0.3rem 0.7rem;
       font-size: 1rem;
-      font-weight: 100;
+      font-weight: bold;
     }
     & .category {
       margin-left: -5px;
